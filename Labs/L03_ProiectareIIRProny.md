@@ -27,13 +27,20 @@ Vezi PSS_L2_Tehnici_directe_proiectare_IIR.pdf
 	* `b`: coeficienții de la numărător
 	* `a`: coeficienții de la numitor
 
-2. Utilizați această funcție pentru a găsi, prin metoda Pade, parametrii filtrului de ordin 2 
-care aproximează impulsul la impuls dorit de forma:
-$$h_d[n] = \left(\frac{1}{3}\right)^n \cdot \cos(\frac{\pi}{4}n)\cdot u[n]$$
+2. Folosiți metoda Prony pentru a găsi parametrii filtrului de ordin 2 
+care aproximează următoarea filtru de ordin superior (3):
+$$H(z) = \frac{0.0736 + 0.0762 z^{-1} + 0.0762 z^{-1} + 0.0736 z^{-3}}
+{1 - 1.3969 z^{-1} + 0.8778 z^{-1} - 0.1812 z^{-3}}$$
+
+    a. Folosiți funcția `impz()` pentru a genera un răspuns la impuls
+	suficient de lung al filtrului dat;
+	b. Utilizați funcția `pronymet()` pentru a proiecta filtrul;
+	c. Reprezentați pe același grafic răspunsul la impuls al filtrului inițial
+	și al celui proiectat, pentru primele 50 de eșantioane.
 
 3. Să se încarce un semnal audio în Matlab și să se filtreze cu filtrul proiectat mai sus.
 Redați semnalul filtrat la ieșirea audio a sistemului.
 
-# Întrebări finale
+# Întrebări
 
 1. TBD
