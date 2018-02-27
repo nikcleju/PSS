@@ -1,42 +1,57 @@
 ---
-title: Introducere
-subtitle: Laborator 1, SDP
+title: Implementarea filtrelor digitale
+subtitle: Laborator 4, SDP
 documentclass: scrartcl
 fontsize: 12pt
 ---
 
 # Obiectiv
 
-Recapitularea noțiunilor fundamentale de prelucrare digitală a semnalelor, precum și ale mediului Matlab.
+Familiarizarea studenților diverse scheme de implementare a filtrelor digitale și
+cu implementarea lor în mediul Simulink
 
 # Noțiuni teoretice
 
-Următoarele aspecte vor fi reamintite.
-
-1. Bazele prelucrării digitale a semnalelor:
-  - sistem, funcție de sistem
-  - răspuns la impuls: ce este
-  - sisteme FIR / IIR: ce sunt, prin ce diferă
-  - ordinul unui filtru
-  - funcție de transfer: numere complexe, modul și fază, interpretarea acestora
-  - poli, zerouri: ce sunt, interpretare
-  - tipuri de filtre: trece-jos, trece-sus, trece-bandă, oprește-bandă
-  - filtre neideale: bandă de tranziție, riplu în banda trecere și de oprire
-   
-2. Matlab
-  - vectori și matrici
 
 
 # Exerciții
 
-1. Încărcați un fișier audio cu funcția `audioread()`, păstrați doar primele 5 secunde din semnal.
+1. Pentru un filtru general IIR de ordin 3, cu funcția de sistem: 
+$$H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2} + b_3 z^{-3}}{1 + a_1 z^{-1} + a_2 z^{-2} + a_3 z^{-3}},$$
+să se deseneze implementarea filtrului în următoarele forme:
 
-2. Reprezentați grafic primele 200 de eșantioane din semnalul audio (un singur canal)
+    a. forma directă I
+    b. forma directă II
+    c. forma directă II transpusă
 
-4. Filtrați semnalul cu filtrul $H(z) = \frac{1+z^{-1}+z^{-2}+z^{-3}}{4}$, utilizând funcția `filter()`.
+2. Pentru filtrul digital cu funcția de sistem: 
+$$H(z) = \frac{2 (1 -z^{-1}) (1 + \sqrt(2) z^{-1} + z^{-2})}{(1 + 0.5 z^{-1}) (1 - 0.9 z^{-1} + 0.81 z^{-2}},$$
+să se deseneze schema de implementare în una din formele serie (la alegere)
 
-5. Redați rezultatul folosind funcțiile `audioplayer` and `play()`.
+3. Pentru filtrul digital cu funcția de sistem: 
+$$H(z) = \frac{5 - 6 z^{-1} + 3.72 z^{-2} - 0.74 z^{-3}}{1 - 1.5 z^{-1} + 1.24 z^{-2} - 0.37 z^{-3}} = 2 + \frac{1}{1-0.5 z^{-1}} + \frac{2 - z^{-1}}{1 - z^{-1} + 0.74 z^{-2}},$$
+să se deseneze schema de implementare în forma paralel
 
+1. În mediul Matlab, utilizați utilitarul `fdatool` pentru a proiecta unul din filtrele următoare:
+    
+    a. Un filtru trece-jos IIR de ordin 4, de tip eliptic, cu frecvența de tăiere de 4kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-sus IIR de ordin 4, de tip eliptic, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-bandă IIR de ordin 4, de tip eliptic, cu banda de trecere între 700Hz și 4kHz la o frecvență de eșantionare de 44.1kHz.
+
+1. În mediul Simulink, realizați implementarea filtrelor de mai sus în forma directă II. Aplicați la intrare un semnal audio și ascultați la ieșire
+semnalul filtrat și cel original. Caracterizați diferența auditivă între cele două semnale.
+
+Observații:
+
+- veți avea nevoie de blocurile *Unit Delay*, *Sum* și *Gain*
+- la intrare puneți un bloc *From Multimedia File*, la ieșire un bloc *To Audio Device*
+- la blocul *From Multimedia File* selectați un fișier audio (de ex. Kalimba.mp3
+din My Documents) și puneți setările *Sample-based*, *Samples per audio channel* = 1 
+și "DataTypes/Audio output data type" = *double*
+- modificați setările modelului pentru a utiliza o simulare discretă, cu pas fix (auto).
+    - Type: *Fixed-step*
+    - Solver: *discrete (no continous states)*
+- înainte de blocul *To Audio Device* intercalați un bloc *Manual Switch* la care semnalul original și semnalul filtrat, pentru a putea comuta ușor între cele două
 
 # Întrebări finale
 
