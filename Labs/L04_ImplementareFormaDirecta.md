@@ -1,6 +1,6 @@
 ---
 title: Implementarea filtrelor digitale
-subtitle: Laborator 4, SDP
+subtitle: Laborator 4, PSS
 documentclass: scrartcl
 fontsize: 12pt
 ---
@@ -43,15 +43,22 @@ semnalul filtrat și cel original. Caracterizați diferența auditivă între ce
 
 Observații:
 
-- veți avea nevoie de blocurile *Unit Delay*, *Sum* și *Gain*
-- la intrare puneți un bloc *From Multimedia File*, la ieșire un bloc *To Audio Device*
-- la blocul *From Multimedia File* selectați un fișier audio (de ex. Kalimba.mp3
+- Setați parametrii modelului Simulink pentru o simulare discretă, cu pas fix (auto):
+    - Type: *Fixed-step*
+    - Solver: *discrete (no continuous states)*
+    
+![Model settings for discrete models](img/Simulink_Settings_Model.png)
+
+- Veți avea nevoie de blocurile *Unit Delay*, *Sum* și *Gain*
+- La intrare puneți un bloc *From Multimedia File*, la ieșire un bloc *To Audio Device*
+- La ieșire, înainte de blocul *To Audio Device* intercalați un bloc *Manual Switch* la care semnalul original și semnalul filtrat, pentru a putea comuta ușor între cele două
+- La blocul *From Multimedia File* selectați un fișier audio (de ex. Kalimba.mp3
 din My Documents) și puneți setările *Sample-based*, *Samples per audio channel* = 1 
 și "DataTypes/Audio output data type" = *double*
-- modificați setările modelului pentru a utiliza o simulare discretă, cu pas fix (auto).
-    - Type: *Fixed-step*
-    - Solver: *discrete (no continous states)*
-- înainte de blocul *To Audio Device* intercalați un bloc *Manual Switch* la care semnalul original și semnalul filtrat, pentru a putea comuta ușor între cele două
+
+![Settings for the *From Multimedia Device* block - part 1](img/Simulink_Settings_FromMMDevice_1.png){width=50%}
+![Settings for the *From Multimedia Device* block - part 2](img/Simulink_Settings_FromMMDevice_2.png){width=50%}
+
 
 # Întrebări finale
 
