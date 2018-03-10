@@ -1,41 +1,54 @@
 ---
-title: Introducere
-subtitle: Laborator 1, SDP
+title: Implementarea filtrelor digitale FIR în forma lattice
+subtitle: Laborator 5, PSS
 documentclass: scrartcl
 fontsize: 12pt
 ---
 
 # Obiectiv
 
-Recapitularea noțiunilor fundamentale de prelucrare digitală a semnalelor, precum și ale mediului Matlab.
+Familiarizarea studenților cu formele de implementare tip *lattice* folosite
+la implementarea filtrelor de tip FIR
 
 # Noțiuni teoretice
-
-Următoarele aspecte vor fi reamintite.
-
-1. Bazele prelucrării digitale a semnalelor:
-  - sistem, funcție de sistem
-  - răspuns la impuls: ce este
-  - sisteme FIR / IIR: ce sunt, prin ce diferă
-  - ordinul unui filtru
-  - funcție de transfer: numere complexe, modul și fază, interpretarea acestora
-  - poli, zerouri: ce sunt, interpretare
-  - tipuri de filtre: trece-jos, trece-sus, trece-bandă, oprește-bandă
-  - filtre neideale: bandă de tranziție, riplu în banda trecere și de oprire
-   
-2. Matlab
-  - vectori și matrici
 
 
 # Exerciții
 
-1. Încărcați un fișier audio cu funcția `audioread()`, păstrați doar primele 5 secunde din semnal.
+1. Determinați coeficienții filtrului FIR în forma directă
+dacă se cunosc coeficienții de reflexie ai structurii *lattice*:
+$K_1 = \frac{1}{2}$, $K_2 = 0.6$, $K_3 = -0,7$, $K_1 = \frac{1}{3}$.
 
-2. Reprezentați grafic primele 200 de eșantioane din semnalul audio (un singur canal)
+2. Determinați coeficienții structurii *lattice* pentru un filtru FIR cu funcția de sistem:
+$$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
 
-4. Filtrați semnalul cu filtrul $H(z) = \frac{1+z^{-1}+z^{-2}+z^{-3}}{4}$, utilizând funcția `filter()`.
+4. Utilizați utilitarul `fdatool` pentru a proiecta unul din filtrele următoare:
+    
+    a. Un filtru trece-jos FIR de ordin 5, de tip eliptic, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-sus FIR de ordin 5, de tip eliptic, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-bandă FIR de ordin 5, de tip eliptic, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.
 
-5. Redați rezultatul folosind funcțiile `audioplayer` and `play()`.
+4. În mediul Simulink, realizați implementarea FIR filtrului de mai sus în forma *lattice*.
+
+
+Observații:
+
+- Veți avea nevoie de blocurile *Unit Delay*, *Sum* și *Gain*
+- La intrare puneți un bloc *From Multimedia File*, la ieșire un bloc *To Audio Device*
+- La ieșire, înainte de blocul *To Audio Device* intercalați un bloc *Manual Switch* la care semnalul original și semnalul filtrat, pentru a putea comuta ușor între cele două
+- La blocul *From Multimedia File* selectați un fișier audio (de ex. Kalimba.mp3
+din My Documents) și puneți setările *Sample-based*, *Samples per audio channel* = 1 
+și "DataTypes/Audio output data type" = *double*
+
+![Settings for the *From Multimedia Device* block - part 1](img/Simulink_Settings_FromMMDevice_1.png){width=50%}
+![Settings for the *From Multimedia Device* block - part 2](img/Simulink_Settings_FromMMDevice_2.png){width=50%}
+
+
+- Setați parametrii modelului Simulink pentru o simulare discretă, cu pas fix (auto):
+    - Type: *Fixed-step*
+    - Solver: *discrete (no continuous states)*
+    
+![Model settings for discrete models](img/Simulink_Settings_Model.png)
 
 
 # Întrebări finale
