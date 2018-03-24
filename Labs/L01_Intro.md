@@ -1,6 +1,6 @@
 ---
 title: Introducere
-subtitle: Laborator 1, SDP
+subtitle: Laborator 1, PSS
 documentclass: scrartcl
 fontsize: 12pt
 ---
