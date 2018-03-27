@@ -23,6 +23,7 @@ a filtrelor IIR.
 	$v[0]=
 	\begin{bmatrix}
 	0 \\
+	0 \\
 	1
 	\end{bmatrix}$
 
