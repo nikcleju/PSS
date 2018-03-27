@@ -24,7 +24,7 @@ a filtrelor IIR.
 	\begin{bmatrix}
 	0 \\
 	0 \\
-	1
+	1 \\
 	\end{bmatrix}$
 
 2. Fie sistemul descris în spațiul stărilor de următoarele ecuații:
