@@ -36,10 +36,6 @@ complement față de 1 (C1) și complement față de 2 (C2).
     
     Valorile negative se reprezintă în formatul C2.
     
-1. Să se realizeze următoarele operații în formatul virgulă fixă 1S0Î3F.
-Valorile calculelor intermediare / finale se rotunjesc la fiecare pas.
-    a. 0.3125 - 0.75 + 0.625
-    
 3. Utilizați utilitarul `fdatool` pentru a proiecta un filtru trece-jos IIR 
 de ordin 4, de tip eliptic, cu frecvența de tăiere de 4kHz la 
 o frecvență de eșantionare de 44.1kHz. Exportați coeficienții 
@@ -47,7 +43,7 @@ formei directe II în Workspace-ul Matlab sub numele `b` și `a`
 
 4. În utilitarul `fdatool`, setați aritmetica filtrului la 
 "fixed-point arithmetic" și modificați:
-    a. Setați formatul virgulă fixă 1S1Î3F. 
+    a. Setați formatul virgulă fixă 1S2Î7F. 
     Cum se modifică funcția de transfer a circuitului? 
     b. Creșteți numărul de biți ai părții fracționare. 
     Cum se modifică funcția de transfer a circuitului? 
@@ -62,8 +58,10 @@ coeficienții în Workspace-ul Matlab sub numele `b2` și `a2`.
 5. Încărcați semnalul audio `mtlb` din Matlab.
 Utilizați funcția `filter()` pentru a filtra semnalul cu 
 filtrul original (`b` și `a`) și cu cel în virgulă fixă în
-forma directă II (`b1` și `a2`). Afisați semnalul diferență dintre
-cele două ieșiri.
+forma directă II (`b1` și `a1`). 
+    a. Afișați semnalul diferență dintre cele două ieșiri.
+    b. Afișați histograma semnalului diferență. Ce formă are? Care este 
+    valoarea medie a erorilor?
 
 
 # Întrebări finale
