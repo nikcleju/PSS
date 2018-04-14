@@ -1,6 +1,6 @@
 ---
 title: Metode de estimare spectrală
-subtitle: Laborator 8, PSS
+subtitle: Laborator 11, PSS
 documentclass: scrartcl
 fontsize: 12pt
 ---
@@ -35,9 +35,9 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 	b. Utilizați funcția `buffer()` pentru a împărți semnalul în ferestre cu lungimea de 30ms.
 	c. Utilizați funcțiile `psd()` și `spectrum.periodogram` pentru a estima și a afișa succesiv 
 	spectrul fiecărei ferestre.
-	d. Localizați și afisați frecvența dominantă din spectrul fiecărei ferestre.
+	d. Localizați și afișați frecvența dominantă din spectrul fiecărei ferestre.
 	Convertiți frecvența la nota muzicală.
-	e. Repetați înlocuind periodigrama cu metoda Yule-Walker (`spectrum.yulear`).
+	e. Repetați înlocuind periodograma cu metoda Yule-Walker (`spectrum.yulear`).
 
 # Întrebări finale
 

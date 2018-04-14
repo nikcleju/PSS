@@ -22,7 +22,7 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
     a. Să se deseneze realizarea în forma directă II și în una din formele serie
 	b. Presupunând o implementare în formatul virgulă fixă pe $b$ biți.
 	Fiecare produs se rotunjește pe $b$ biți. Determinați dispersia zgomotului
-	de rotunjire datorat multiplicărilor la ieșirea fiecărei implementărilorâ
+	de rotunjire datorat multiplicărilor la ieșirea fiecărei implementărilor
 	de la punctul a.
 
 2. Utilizați utilitarul `fdatool` pentru a proiecta un filtru trece-sus IIR 
@@ -37,7 +37,7 @@ fixă 1S2Î9F. Calculați și afișați diferența dintre cele două ieșiri.
 Exportați semnalul diferență în Workspace-ul Matlab și calculați media și varianța sa.
 
 4. Realizați o nouă copie a celui de-al doilea filtru, la care debifați la blocurile *Sum* opțiunea *Saturate on integer overflow*.
-Care este efectul acesteia? Calculați și afisați diferența față de ieșirea primului filtru.
+Care este efectul acesteia? Calculați și afișați diferența față de ieșirea primului filtru.
 Care dintre filtrele 2 și 3 produce erori mai mici?
 
 5. Utilizați funcția `normescal` pentru a calcula diferite norme de scalare pentru filtrul dat.
