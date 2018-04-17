@@ -1,6 +1,5 @@
 ---
 title: Efectele cuantizării în filtrarea digitală
- în filtrarea digitală
 subtitle: Laborator 9, PSS
 documentclass: scrartcl
 fontsize: 12pt
@@ -21,7 +20,7 @@ unui filtru digital.
 	$$y[n] = \frac{1}{2}y[n-1] + x[n]$$
 
 	Calculați primele 6 eșantioane ale răspunsului la semnalul 
-	de intrare $x[n] = \left(\frac{1}{4}\right)^n$, în trei moduri:
+        de intrare $x[n] = \left(\frac{1}{4}\right)^n u[n]$, în trei moduri:
 	
 	a. Calcule în precizie infinită
 	b. Calcule în formatul virgulă fixă 1S0Î4F, cuantizare prin
@@ -30,17 +29,19 @@ unui filtru digital.
 	rotunjire
     
 
-1. În Matlab, încărcați semnalul `mtlb` și cuantizați-l pe $N=8$ biți.
+1. În Matlab, creați un fișier tip *script* pentru a studia cuantizarea semnalului 
+`mtlb` pe $N=8$ biți.
+    a. Încărcați semnalul audio predefinit `mtlb` (cu `load mtlb`);
     a. Deduceți dacă aveți nevoie de bit de semn sau nu;
 	b. Aflați valoarea absolută maximă a semnalului și deduceți numărul de
 	biți necesar pentru partea întreagă, respectiv câți biți mai 
 	rămân disponibili pentru partea fracționară;
 	c. Utilizați funcția `fixdt()` pentru a crea tipul de date corespunzător
-	d. Utilizați funcția `num2fixpt` pentru a converti semnalul `mtlb` la
+	d. Utilizați funcția `num2fixpt()` pentru a converti semnalul `mtlb` la
 	formatul virgulă fixă ales, prin toate cele 3 metode de cuantizare
-	e. Pentru toate cele 3 metode de cuantizare, vizualizați eroarea de cuantizare, 
-	calculați valoarea medie și dispersia erorii. Care metodă de cuantizare produce
-	erorile minime?
+	e. Pentru toate cele 3 metode de cuantizare, vizualizați semnalul cuantizat,
+	eroarea de cuantizare, și calculați energia totală a erorii de cuantizare.
+	Care metodă de cuantizare produce erorile minime?
 	f. Redați semnalul cuantizat. Se poate sesiza diferența?
 	
 2. În Matlab, realizați o funcție pentru a implementa sistemul din exercițiul 1. 
