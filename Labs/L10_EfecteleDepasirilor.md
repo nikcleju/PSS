@@ -20,10 +20,10 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
 	$$H(z) = \frac{1-\frac{1}{2}z^{-1}}{\left(1 - \frac{1}{4}z^{-1}\right)\left(1 + \frac{1}{4}z^{-1}\right)}$$
 
     a. Să se deseneze realizarea în forma directă II și în una din formele serie
-	b. Presupunând o implementare în formatul virgulă fixă pe $b$ biți.
-	Fiecare produs se rotunjește pe $b$ biți. Determinați dispersia zgomotului
-	de rotunjire datorat multiplicărilor la ieșirea fiecărei implementărilor
-	de la punctul a.
+	b. Considerăm o implementare în formatul virgulă fixă, cu $b$ biți pentru partea fracționară.
+	Fiecare produs se cuantizează prin rotunjire la acest format.
+	Determinați dispersia zgomotului de rotunjire datorat multiplicărilor
+	la ieșirea fiecărei implementări de la punctul a.
 
 2. Utilizați utilitarul `fdatool` pentru a proiecta un filtru trece-sus IIR 
 de ordin 4, de tip Butterworth, cu frecvența de tăiere de 1.5kHz la 
