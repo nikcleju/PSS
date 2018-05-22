@@ -5,6 +5,8 @@ documentclass: scrartcl
 fontsize: 12pt
 ---
 
+\newcommand*{\underuparrow}[1]{\ensuremath{\underset{\uparrow}{#1}}} 
+
 # Obiectiv
 
 Proiectarea filtrelor IIR prin metoda Prony.
@@ -15,7 +17,12 @@ Vezi PSS_L2_Tehnici_directe_proiectare_IIR.pdf
 
 # Exerciții
 
-1. Implementați în Matlab o funcție de rezolvare a sistemului de ecuații pentru metoda Prony:
+1. Să se proiecteze prin metoda Prony un filtru IIR de ordin 2 
+care aproximează răspunsul la impuls dorit
+$$h_d[n] = \{...0,\underuparrow{1},2,3,2,1,2,3\}$$
+    (originea timpului $n=0$ este în dreptul primei valori de 1 din secvență).
+
+2. Implementați în Matlab o funcție de rezolvare a sistemului de ecuații pentru metoda Prony:
 
     ```[b,a] = pronymet(ordin, hd)```
 
