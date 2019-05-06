@@ -29,15 +29,21 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 	Să se determine ecuația cu diferențe a procesului aleator $x[n]$. Este aceasta unică? 
 	Dacă nu, găsiți mai multe soluții posibile.
 
-3. În Matlab, realizați un script care simulează un analizor de spectru.
-    
-	a. Încărcați semnalul `music.wav` cu funcția `audioread()`.
-	b. Utilizați funcția `buffer()` pentru a împărți semnalul în ferestre cu lungimea de 30ms.
-	c. Utilizați funcțiile `psd()` și `spectrum.periodogram` pentru a estima și a afișa succesiv 
+3. În Matlab, construiți un semnal audio care "cântă" toate notele muzicale (
+	Do - Do# - Re - Re# - Mi - Fa - Fa# - Sol - Sol# - La - La# - Si),
+	știind că frecvențele lor sunt: [262   277   294   311   330   349   370   392   415   440   466   494] Hz.
+	
+4. Adaugați zgomot alb peste semnalul generat anterior
+
+5. Realizați un script care simulează un analizor de spectru pentru semnalul de la punctul anterior.
+	a. Utilizați funcția `buffer()` pentru a împărți semnalul în ferestre cu lungimea de 30ms.
+	b. Utilizați funcția `periodogram()` pentru a estima și a afișa succesiv 
 	spectrul fiecărei ferestre.
-	d. Localizați și afișați frecvența dominantă din spectrul fiecărei ferestre.
-	Convertiți frecvența la nota muzicală.
-	e. Repetați înlocuind periodograma cu metoda Yule-Walker (`spectrum.yulear`).
+	c. Localizați și afișați frecvența dominantă din spectrul fiecărei ferestre.
+	Afișați frecvența și nota muzicală corespunzătoare.
+	d. Repetați înlocuind periodograma cu metoda Yule-Walker (`pyulear()`).
+
+6. Rulați script-ul anterior pentru fișierul audio `Kalimba.mp3`
 
 # Întrebări finale
 
