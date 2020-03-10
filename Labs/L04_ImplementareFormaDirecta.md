@@ -12,6 +12,51 @@ cu implementarea lor în mediul Simulink
 
 # Noțiuni teoretice
 
+Formele directe de implementare a filtrelor IIR sunt prezentate mai jos.
+
+## Forme directe
+
+![Forma directă I](img/DF1.png){width=50%}
+
+![Forma directă II](img/DF2.png){width=50%}
+
+![Forma directă I transpusă](img/DF1T.png){width=50%}
+
+![Forma directă II transpusă](img/DF2T.png){width=50%}
+
+Imaginile sunt preluate din "Introduction to Digital Filters with Audio Applications", Julius O. Smith III, disponibilă la adresa:
+[https://www.dsprelated.com/freebooks/filters/](https://www.dsprelated.com/freebooks/filters/)
+
+## Forma serie
+
+În forma serie, funcția de sistem este descompusă ca un produs de termeni de ordin mai mic, de obicei de ordin 2:
+$$H(z) = H_1(z) \cdot H_2(z) \cdot ... \cdot H_n(z)$$
+
+Sistemul este implementat din subsistemele mai mici, $H_1(z), H_2(z) ... H_n(z)$, aranjate **în serie**.
+Fiecare subsistem individual poate fi implementat sub orice formă.
+
+Exemplu:
+
+![Exemplu de implementare serie](img/SeriesForm.gif){width=75%}
+
+Imaginea este preluată din "DSP blockset manual", Mathworks, disponibil aici:
+[http://matrix.etseq.urv.es/manuals/matlab/toolbox/dspblks/biquadraticfilter.html](http://matrix.etseq.urv.es/manuals/matlab/toolbox/dspblks/biquadraticfilter.html)
+
+
+## Forma paralel
+
+În forma paralel, funcția de sistem este descompusă ca o sumă de funcții de ordin mai mic:
+$$H(z) = H_1(z) + H_2(z) + ... + H_n(z)$$
+
+Sistemul este implementat din subsistemele mai mici $H_1(z), H_2(z) ... H_n(z)$ aranjate **în paralel**.
+
+Exemplu:
+
+![Exemplu de implementare în forma paralel](img/ParallelForm.gif){width=50%}
+
+Imaginea este preluată din "Introduction to DSP", BORES Signal Processing, disponibil aici:
+[http://www.bores.com/courses/intro/iir/5_para.htm](http://www.bores.com/courses/intro/iir/5_para.htm)
+
 
 
 # Exerciții
@@ -22,6 +67,7 @@ să se deseneze implementarea filtrului în următoarele forme:
 
     a. forma directă I
     b. forma directă II
+    c. forma directă I transpusă
     c. forma directă II transpusă
 
 2. Pentru filtrul digital cu funcția de sistem: 
@@ -40,6 +86,8 @@ să se deseneze schema de implementare în forma paralel
 
 1. În mediul Simulink, realizați implementarea filtrelor de mai sus în forma directă II. Aplicați la intrare un semnal audio și ascultați la ieșire
 semnalul filtrat și cel original. Caracterizați diferența auditivă între cele două semnale.
+
+1. În mediul SImulink, schimbați una dintre implementările anterioare la o formă serie ("Second-Order-Sections").
 
 Observații:
 
