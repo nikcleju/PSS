@@ -16,10 +16,14 @@ unui filtru digital.
 
 # Exerciții
 
+1. Convertiți numărul de mai jos din binar în zecimal:
+
+    $11011.0101$
+    
 1. Să se scrie în formatul virgulă fixă cu 1 bit de semn, 6 biți pentru partea întreagă
-și 6 biți pentru partea fracționară (1S6Î6F) numerele:
-    a. 273
-    b. 273.21875
+și 6 biți pentru partea fracționară (1S6Î6F) numărul:
+
+    $273.21875$
 
 1. Să se scrie în formatul virgulă fixă cu 1 bit de semn, 6 biți pentru partea întreagă
 și 6 biți pentru partea fracționară (1S6Î6F) numerele negative următoare. 
