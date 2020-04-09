@@ -30,8 +30,8 @@ unui filtru digital.
 și 6 biți pentru partea fracționară (1S6Î6F) numerele negative următoare. 
 Reprezentarea numerelor negative se va face în formatele mărime cu semn,
 complement față de 1 (C1) și complement față de 2 (C2).
-    a. -273
-    b. -273.21875
+    a. -22
+    b. -22.21875
     
 1. Cuantizați eșantioanele $x_1 = 0.42625$ și $x_2 = -0.4333$ 
 în formatul virgulă fixă 1S0Î4F prin:
