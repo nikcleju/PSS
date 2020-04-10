@@ -60,9 +60,8 @@ complement față de 1 (C1) și complement față de 2 (C2).
   
 3. Afișați diagrama poli-zerouri în fiecare caz de mai sus, folosind funcția `zplane()`
   
-3. Evaluați efectul cuantizării considerând o **implementare în forma paralel** a filtrului:
-    - Calculați coeficienții pentru implementarea paralel folosind funcția `rpfd()` furnizată în fișierele de laborator;
-    - Folosiți funcția `qfr ()` pentru a calcula răspunsul în frecvență cu coeficienți cuantificați, în forma de implementare paralel;
+3. Evaluați efectul cuantizării considerând o **implementare în forma paralel** și o implementare **în formă serie**a filtrului:
+    - Folosiți funcția `qfr ()` pentru a calcula răspunsul în frecvență cu coeficienți cuantificați, în forma de implementare paralel și serie;
       Deschideți fișierul `qfr.m` pentru a vedea care sunt argumentele de intrare și ieșire;
     - Afișați funcțiile de transfer în trei cazuri:
         - coeficienți necuantificați (precizie maximă)
@@ -71,13 +70,6 @@ complement față de 1 (C1) și complement față de 2 (C2).
         
     -  Afișați diagrama poli-zerouri în fiecare caz, folosind funcția `zplane()`
       
-    **Notă:** Funcția `rpfd ()` se apelează `[c, nsec, dsec] = rpfd (b, a)` și furnizează coeficienții implementării paralel după cum urmează:
-      - `c` = coeficienții polinomului liber (câtul împărțirii polinoamelor)
-      - `nsec` = coeficienții de la numărător ai tuturor secțiunilor, pe fiecare linie
-      - `dsec` = coeficienții de la numitor ai tuturor secțiunilor, pe fiecare linie
-
-4. Similar cu exercițiul de mai sus, evaluați efectul cuantizării considerând implementare **în formă serie** a filtrului, care se obține cu funcția `tf2sos()`.
-
 5. Care este implementarea care este cea mai robustă pentru cuantificare?      
 
 # Întrebări finale
