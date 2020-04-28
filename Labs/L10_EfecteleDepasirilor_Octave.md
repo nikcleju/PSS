@@ -19,11 +19,11 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
 1. Se consideră sistemul 
 	$$H(z) = \frac{1-\frac{1}{2}z^{-1}}{\left(1 - \frac{1}{4}z^{-1}\right)\left(1 + \frac{1}{4}z^{-1}\right)}$$
 
-    a. Să se deseneze realizarea în forma directă II și în una din formele serie
+    a. Să se deseneze realizarea în una din formele serie
 	b. Considerăm o implementare în formatul virgulă fixă, cu $b$ biți pentru partea fracționară.
 	Fiecare produs se cuantizează prin rotunjire la acest format.
 	Determinați dispersia zgomotului de rotunjire datorat multiplicărilor
-	la ieșirea fiecărei implementări de la punctul a.
+	la ieșirea implementării de la punctul a.
 
 
 2. Fie sistemul următor:
