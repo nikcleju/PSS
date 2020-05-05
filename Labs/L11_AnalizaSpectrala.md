@@ -24,7 +24,7 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 	
 2. Autocorelația unui proces aleator AR $x[n]$ este:
 
-    $\gamma_{xx}[m] = \frac{1}{4}^m.$
+    $\gamma_{xx}[m] = \frac{1}{4}^{|m|}.$
 	
 	Să se determine ecuația cu diferențe a procesului aleator $x[n]$. Este aceasta unică? 
 	Dacă nu, găsiți mai multe soluții posibile.
