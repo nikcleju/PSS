@@ -34,6 +34,27 @@ $$H(z) = \frac{1}{ 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3
 4. În mediul Simulink, realizați implementarea IIR filtrului de mai sus în forma *lattice*.
 
 
+5. În Octave, realizați o funcție pentru a filtra un semnal de intrare `x` cu un filtru IIR în forma lattice, folosind
+coeficienții $K$ și $V$:
+    
+    ```
+    y = filter_latc_iir(K, V, x)
+    ```
+    
+    În funcție, definiți variabilele `w1`, `w2`, ... pentru a stoca valorile din celulele de intârziere,
+    și `w1_next`, ... pentru valorile lor următoare.
+      - Calculați ieșirea curentă pe baza valorilor `w1`, ... și a intrării curente
+      - Calculați valorile următoare `w1_next`, ... pe baza valorilor `w1`, ... și a intrării curente
+      - Actualizați `w1`, ... cu valorile din `w1_next`, ... apoi se iterează din nou
+    
+
+5. Utilizați funcția de mai sus pentru a filtra un semnal audio.
+
+    a) Încărcați fișierul folosind `audioread()`;
+    c) Filtrați semnalul cu funcția `filter_latc_iir()` de mai sus, și afișați/redați semnalul obținut.
+
+
+
 Observații:
 
 - Veți avea nevoie de blocurile *Unit Delay*, *Sum* și *Gain*
