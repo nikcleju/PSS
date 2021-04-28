@@ -25,7 +25,7 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
 	Determinați dispersia zgomotului de rotunjire datorat multiplicărilor
 	la ieșirea implementării de la punctul a.
 
-2. Utilizați utilitarul `fdatool` pentru a proiecta un filtru trece-sus IIR 
+2. Utilizați utilitarul `fdatool` pentru a proiecta un filtru trece-jos IIR 
 de ordin 4, de tip Butterworth, cu frecvența de tăiere de 1.5kHz la 
 o frecvență de eșantionare de 44.1kHz. Convertiți filtrul la forma directă II
 și exportați-l în Simulink (bifați *Build model using basic elements*).
