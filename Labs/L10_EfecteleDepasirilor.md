@@ -35,7 +35,7 @@ La al doilea filtru, semnalul de intrare se va converti la formatul virgulă
 fixă 1S6Î9F. Calculați și afișați diferența dintre cele două ieșiri. 
 Exportați semnalul diferență în Workspace-ul Matlab și calculați media și varianța sa.
 
-4. Realizați o nouă copie a celui de-al doilea filtru, la care debifați la blocurile *Sum* opțiunea *Saturate on integer overflow*.
+4. Realizați o nouă copie a celui de-al doilea filtru, la care debifați la blocurile *Sum* si *Gain* opțiunea *Saturate on integer overflow*.
 Care este efectul acesteia? Calculați și afișați diferența față de ieșirea primului filtru.
 Care dintre filtrele 2 și 3 produce erori mai mici?
 
