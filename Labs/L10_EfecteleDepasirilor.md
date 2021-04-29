@@ -32,7 +32,7 @@ o frecvență de eșantionare de 44.1kHz. Convertiți filtrul la forma directă 
 3. În modelul Simulink, realizați două copii ale filtrului (Copy/Paste). 
 La ambele filtre se va pune ca intrare un semnal audio (de ex. *Kalimba.mp3* sau *mtlb*).
 La al doilea filtru, semnalul de intrare se va converti la formatul virgulă
-fixă 1S2Î9F. Calculați și afișați diferența dintre cele două ieșiri. 
+fixă 1S6Î9F. Calculați și afișați diferența dintre cele două ieșiri. 
 Exportați semnalul diferență în Workspace-ul Matlab și calculați media și varianța sa.
 
 4. Realizați o nouă copie a celui de-al doilea filtru, la care debifați la blocurile *Sum* opțiunea *Saturate on integer overflow*.
