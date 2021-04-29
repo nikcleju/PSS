@@ -1,6 +1,5 @@
 ---
 title: Efectele depășirilor în filtrarea digitală
- în filtrarea digitală
 subtitle: Laborator 10, PSS
 documentclass: scrartcl
 fontsize: 12pt
