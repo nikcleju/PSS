@@ -31,18 +31,18 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 
 3. În Matlab, generați un semnal de lungime $N=1000$ după cum urmează:
 	
-	$x[n] = \cos(2 \cdot \pi \cdot f_1 \cdot n) + 0.5 \cdot \cos(2 \cdot \pi \cdot f_2 \cdot n) + A \cdot zgomot$
+	$x[n] = \cos(2 \pi f_1 n) + 0.5 \cdot \cos(2 \pi f_2 n) + A \cdot zgomot$
 	
-	unde $f_1 = 1 / 44100$ și $f_2 = 1.8 / 44100$, iarr zgomotul este aleator, alb, gaussian, aditiv (`randn()`).
+	unde $f_1 = 1000 / 44100$ și $f_2 = 1800 / 44100$, iar zgomotul este aleator, alb, gaussian, aditiv (`randn()`).
 	
 	Utilizați valori diferite pentru A (de ex. 0.1, 0.3).
 	
 4. Estimați densitatea spectrală de putere a semnalului `x`:
     1. Calculați transformata Fourier $X(f)$ a lui $x$ (folosiți `fft()`), și afisați $|X(f)|^2$
 	2. Utilizați funcția `periodogram()`
-	3. Impărțiți semnalul in 2, 4, sau 10 segmente egale, calculați periodograma fiecăruia, apoi mediați-le.
+	3. Use the Yule Walker method (`pyulear`).
+	4. Impărțiți semnalul in 2, 4, sau 10 segmente egale, calculați periodograma fiecăruia, apoi mediați-le.
 	   Care sunt diferențele?
-	4. Use the Yule Walker method (`pyulear`).
 	
 	Investigați următoarele:
 	  - sunt vârfurile spectrale localizate corect la frecvențele $f_1$ și $f_2$?
