@@ -40,7 +40,7 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 4. Estimați densitatea spectrală de putere a semnalului `x` prin metodele următoare:
     1. Calculați transformata Fourier $X(f)$ a lui $x$ (folosiți `fft()`), și afisați $|X(f)|^2$
 	2. Utilizați funcția `periodogram()`
-	3. Use the Yule Walker method (`pyulear`).
+	3. Utilizați metoda Yule-Walker (cu funcția `pyulear()`).
 	4. Impărțiți semnalul in 2, 4, sau 10 segmente egale, calculați periodograma fiecăruia, apoi mediați-le.
 	   Care sunt diferențele?
 	
