@@ -1,6 +1,6 @@
 ---
 title: Metode de estimare spectrală
-subtitle: Laborator 11, PSS
+subtitle: Laborator 12, PSS
 documentclass: scrartcl
 fontsize: 12pt
 ---
@@ -37,7 +37,7 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 	
 	Utilizați valori diferite pentru A (de ex. 0.1, 0.3).
 	
-4. Estimați densitatea spectrală de putere a semnalului `x`:
+4. Estimați densitatea spectrală de putere a semnalului `x` prin metodele următoare:
     1. Calculați transformata Fourier $X(f)$ a lui $x$ (folosiți `fft()`), și afisați $|X(f)|^2$
 	2. Utilizați funcția `periodogram()`
 	3. Use the Yule Walker method (`pyulear`).
