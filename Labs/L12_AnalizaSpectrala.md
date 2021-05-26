@@ -49,8 +49,17 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 	  - sunt vârfurile spectrale înguste sau largi?
 	  - este spectrul zgomotului constant ("flat") sau nu?
 	  
+
+5. Verificați acordarea corectă a unei chitare:
+    a. Încărcați fișierul `1st_String_E.ogg` cu funcția `audioread()`, și afisați-i spectrul.
+	   Utilizați `[pxx, f] = periodogram(x, [], [], Fs)` pentru a obține atât spectrul cât și 
+	   valorile frecvențelor, apoi afișați `pxx` în funcția de `f`.
+	b. Identifiați frecvența fundamentală
+	c. Comparați fundamentala cu valorile frecvențelor pentru o acordare standard a chitarei 
+	   (cautați pagina Wikipedia despre "Guitar Tunings")
+	d. Repetați analiza pentru toate celelalte corzi al chitarei
 	  
-5. Realizați un script care simulează un analizor de spectru ]n timp real.
+6. Realizați un script care simulează un analizor de spectru în timp real.
 	a. Încărcați semnalul `music.wav` cu funcția `audioread()`.
 	a. Utilizați funcția `buffer()` pentru a împărți semnalul în ferestre cu lungimea de 30ms.
 	b. Utilizați funcția `periodogram()` pentru a estima și a afișa succesiv 
