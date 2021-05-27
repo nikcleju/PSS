@@ -1,0 +1,23 @@
+% Exercitiul 6, L12
+clear all
+close all
+
+[x, Fs] = audioread('music.wav');
+x = x(:,1);
+
+plot(x);
+%sound(x, Fs);
+%[pxx, f] = periodogram(x, [], [], Fs);
+%figure
+%plot(f, pxx)
+
+n = 0.03 * Fs;     % nr esantioane din 30 milisecunde
+y = buffer(x,n);
+
+for i=1:size(y,2)
+    [pxx, f] = periodogram( y(:,i) , [], [], Fs);
+    plot(f, pxx) 
+    ylim([-2 2])
+    pause(0.030)   % pauza de 30 milisecunde
+end
+    

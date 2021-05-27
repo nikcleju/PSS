@@ -57,7 +57,7 @@ la ieșirea unui proces ARMA(1,1) descris de ecuația cu diferențe
 	b. Identifiați frecvența fundamentală
 	c. Comparați fundamentala cu valorile frecvențelor pentru o acordare standard a chitarei 
 	   (cautați pagina Wikipedia despre "Guitar Tunings")
-	d. Repetați analiza pentru toate celelalte corzi al chitarei
+	d. Repetați analiza pentru toate celelalte corzi ale chitarei
 	  
 6. Realizați un script care simulează un analizor de spectru în timp real.
 	a. Încărcați semnalul `music.wav` cu funcția `audioread()`.
