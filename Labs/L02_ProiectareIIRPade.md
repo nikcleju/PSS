@@ -18,7 +18,7 @@ A se vedea cursul, sau PSS_L2_Tehnici_directe_proiectare_IIR.pdf
 1. Să se determine prin metoda Pade parametrii filtrului cu funcția de sistem
 $$H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1 z^{-1} + a_2 z^{-2}},$$
     dacă răspunsul la impuls dorit este 
-$$h_d[n] = \left(\frac{1}{3}\right)^n \cos\left(\frac{n \pi}{4}\right).$$
+$$h_d[n] = \left(\frac{1}{3}\right)^n \cos\left(n \pi\right) u[n] + u[n-3]$$
 
 
 1. Rezolvați numeric în Matlab sistemul de ecuații aferent metodei Pade de la exercițiul anterior
