@@ -6,3 +6,6 @@
 
 [Lab 04: Aplicații ale metodelor Pade/Prony](L04_Aplicatii.ipynb): [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/nikcleju/PSS/master?urlpath=/lab/tree/Labs/Jupyter/L04_Aplicatii.ipynb)
 
+### Deschidere pe Jupyter Lab instalat local
+
+Click (aici)[http://localhost:8888/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fnikcleju%2FPSS&urlpath=lab%2Ftree%2FPSS%2F&branch=master]
