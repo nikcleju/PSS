@@ -11,9 +11,13 @@
   
   The prompt should start with `(base)` in front.
     
-- Create a new environment called `dsp`: 
+- Create a new environment called `dsp` with Python 3.7: 
   
-  ```conda create --name dsp python=3.6```
+  ```conda create --name dsp python=3.7```
+  
+  or with Python 3.6:
+  
+  ```conda create --name dsp2 python=3.6```
 
 - Switch into the new environment:
   
