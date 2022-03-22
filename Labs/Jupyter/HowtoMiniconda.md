@@ -25,7 +25,7 @@
 
   ```conda install -c conda-forge jupyterlab```
 
-  ```conda install -c conda-forge octave-kernel```
+  ```conda install -c conda-forge octave_kernel```
 
   ```pip install matlab_kernel```
   
