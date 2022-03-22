@@ -13,7 +13,7 @@
     
 - Create a new environment called `dsp`: 
   
-  ```conda create --name dsp python=3.7```
+  ```conda create --name dsp python=3.6```
 
 - Switch into the new environment:
   
