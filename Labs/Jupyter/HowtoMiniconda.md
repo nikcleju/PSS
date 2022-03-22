@@ -7,6 +7,8 @@
     
 ## Install conda packages
 
+### In III.25 (Matlab R2020?)
+
 - Open Start Menu - > Miniconda Prompt. 
   
   The prompt should start with `(base)` in front.
@@ -15,10 +17,6 @@
   
   ```conda create --name dsp python=3.7```
   
-  or with Python 3.6:
-  
-  ```conda create --name dsp2 python=3.6```
-
 - Switch into the new environment:
   
   ```conda activate dsp```
@@ -33,6 +31,29 @@
 
   ```pip install matlab_kernel```
   
+### In I.8 (Matlab R2018b)
+
+- Open Start Menu - > Miniconda Prompt. 
+  
+  The prompt should start with `(base)` in front.
+    
+- Create a new environment called `dsp2` with Python 3.6: 
+  
+  ```conda create --name dsp2 python=3.6```
+
+- Switch into the new environment:
+  
+  ```conda activate dsp2```
+    
+  The prompt should now start with `(dsp2)` in front.
+    
+- Run the following lines, one by one:
+
+  ```pip install jupyterlab```
+
+  ```pip install matlab_kernel```
+
+  
 ### Install Matlab engine for Python
 
 Open Matlab and run the folllwing two lines, one by one:
@@ -44,10 +65,14 @@ Open Matlab and run the folllwing two lines, one by one:
 ### How to use Matlab in Jupyter
 
 - Open Start Menu - > Miniconda Prompt. 
-- Switch into the `dsp` environment:
+- Switch into the `dsp` or `dsp2` environment:
   
-  ```conda activate dsp```
+  ```conda activate dsp``` or ```conda activate dsp2```
   
+- Navigate to `D:` folder
+
+  ```d:```
+
 - Start Jupyter lab:
   
   ```jupyter lab```
