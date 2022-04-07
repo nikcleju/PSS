@@ -12,6 +12,22 @@ la implementarea filtrelor de tip FIR
 
 # Noțiuni teoretice
 
+Implementarea în formă *lattice* a unui filtru FIR de ordin 3:
+
+![Forma lattice, ordin 3](img/LatticeFIR_handdraw.png)
+
+Ecuații:
+
+$$\begin{aligned}
+A_0(z) &= B_0(z) = 1 \\
+A_m(z) &= A_{m-1}(z) + K_m \cdot z^{-1} \cdot B_{m-1}(z) \\
+A_{m-1}(z) &= \frac{A_m(z) - K_m  \cdot B_m(z)}{1 - K_m^2} \\
+B_m(z) &= z^{-m} B_m(z^{-1}) = \textrm{ similar cu }A_m(z)\textrm{, cu coeficienții în ordine inversă}
+\end{aligned}$$
+
+Aceste ecuații permit calcularea coeficienților de reflexie $K_m$ din $H(z)$,
+sau calcularea $H(z)$ dacă se cunosc $K_m$.
+
 
 # Exerciții
 
@@ -24,9 +40,9 @@ $$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
 
 4. Utilizați utilitarul `fdatool` pentru a proiecta unul din filtrele următoare:
     
-    a. Un filtru trece-jos FIR de ordin 5, de tip eliptic, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;
-    a. Un filtru trece-sus FIR de ordin 5, de tip eliptic, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;
-    a. Un filtru trece-bandă FIR de ordin 5, de tip eliptic, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.
+    a. Un filtru trece-jos FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-sus FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.
 
 4. În mediul Simulink, realizați implementarea FIR filtrului de mai sus în forma *lattice*.
 
