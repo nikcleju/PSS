@@ -67,12 +67,29 @@ a filtrelor IIR.
     Exportați coeficienții în Workspace-ul Matlab.
 	
 4. În Matlab implementați o funcție `filter_spst(b, a, x)` care filtrează un semnal `x`
-cu filtrul definit de coeficienții `b` și `a`.
+cu filtrul definit de coeficienții `b` și `a`, de orice ordin $n$.
     - Implementarea va fi realizată conform ecuațiilor de tip spațiul stărilor I
 
 
 5. Testați funcția realizată mai sus coeficienții obținuți la exercițiul 3), pentru un semnal audio oarecare.
 
+6. Modificați funcția pentru a face filtrarea temporală a unei secvențe video, pentru un filtru de ordinul trei.
+   Testați funcția pe secvența video `veh_small.mp4`.
+
+   Pentru prelucrarea unei secvențe video in Matlab puteți folosi următorul exemplu:
+
+   ```  
+   v = VideoReader('videofile.mp4');
+
+   % Read all the frames from the video, one frame at a time.
+
+   while hasFrame(v)
+    frame = readFrame(v);
+	
+	% Do the processing here
+	
+   end
+   ```
 
 # Întrebări finale
 
