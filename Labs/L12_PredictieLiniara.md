@@ -47,13 +47,15 @@ cu lucrarea de laborator.
    - Pe baza coeficienților de predicție, folosind relația de predicție,
      preziceți următoarele 200 eșantioane ale semnalului.
 	 Afișați întregul semnal rezultat (400 eșantioane)
-	
+     
+     Puteți folosi o relație de forma `sum(x(n-1:-1:n-ordin) .* (-a(2:end)))`
+
+   - Utilizați funcția `lpc_exact()` în locul `lpc()`. Ce se observă ?
+   	
    - Generați același semnal crescător cu lungime 400 eșantioane direct cu formula initială.
      Afișați pe aceeași figură semnalul acesta și semnalul precedent (2 x 400 eșantioane).
 	
 	 Ce calitate are porțiunea prezisă, comparativ?
-
-   - Utilizați funcția `lpc_exact()` în locul `lpc()`. Ce se observă ?
   
    - Schimbați ordinul modelului în AR(1), AR(2), AR(3), AR(10. Ce se observă ?
   
