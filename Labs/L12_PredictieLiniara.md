@@ -19,6 +19,11 @@ $$x[n] \approx a_1 x[n-1] + a_2 x[n-2] + ... + a_N x[n-n]$$
 Semnalele care respectă (aproximativ) o astfel de relație se numesc "autoregresive" (AR).
 $N$ reprezintă ordinul modelului autoregresiv.
 
+În Matlab, funcția `lpc()` estimează coeficienții $a_k$ (citiți documentația).
+
+O metodă alternativă, mai exactă, este furnizată în funcția `lpc_exact()` împreună
+cu lucrarea de laborator.
+
 # Exerciții
 
 1. Se consideră sistemul descris de ecuația cu diferențe
@@ -32,35 +37,40 @@ $N$ reprezintă ordinul modelului autoregresiv.
 
 2. Predicție liniară pe un semnal liniar
   
-  - Generați un semnal liniar crescător (cu pantă constantă), de lungime 200 eșantioane. 
+   - Generați un semnal liniar crescător (cu pantă constantă), de lungime 200 eșantioane. 
     
-	Folosiți de ex. notația `start:step:stop`
+	 Folosiți de ex. notația `start:step:stop`
 	
-  - Modelăm semnalul ca un proces autoregresiv de ordin 10, AR(10).
+   - Modelăm semnalul ca un proces autoregresiv de ordin 4, AR(4).
     Calculați coeficienții de predicție $a_k$ cu funcția Matlab `lpc()`.
 	
-  - Pe baza coeficienților de predicție, folosind relația de predicție,
-    preziceți următoarele 200 eșantioane ale semnalului.
-	Afișați întregul semnal rezultat (400 eșantioane)
+   - Pe baza coeficienților de predicție, folosind relația de predicție,
+     preziceți următoarele 200 eșantioane ale semnalului.
+	 Afișați întregul semnal rezultat (400 eșantioane)
 	
-  - Generați același semnal crescător cu lungime 400 eșantioane direct cu formula initială.
-    Afișați pe aceeași figură semnalul acesta și semnalul precedent (2 x 400 eșantioane).
+   - Generați același semnal crescător cu lungime 400 eșantioane direct cu formula initială.
+     Afișați pe aceeași figură semnalul acesta și semnalul precedent (2 x 400 eșantioane).
 	
-	Ce calitate are porțiunea prezisă, comparativ?
-	
-  - Discuție:
-      
-	  - ce ordin autoregresiv are acest model?
+	 Ce calitate are porțiunea prezisă, comparativ?
 
-3. Predicție liniară pe diverse semnale.
+   - Utilizați funcția `lpc_exact()` în locul `lpc()`. Ce se observă ?
+  
+   - Schimbați ordinul modelului în AR(1), AR(2), AR(3), AR(10. Ce se observă ?
+  
+     Care este cel mai mic ordin pentru care predicția reușește?
+	
+
+1. Predicție liniară pe diverse semnale.
 
    Repetați ex. precedent pentru un semnal de forma:
      
    - Semnal exponențial: $x[n] = (0.9)^n u[n]$. Porniți de la un semnal de lungime 50, și estimați următoarele 50 eșantioane.
    
-   - Semnal sinusoidal: $x[n] = 3 \cdot sin( 2 * \pi * f * n) u[n], f = 0.05$. Porniți de la un semnal de lungime 50, și estimați următoarele 50 eșantioane.
+   - Semnal sinusoidal: $x[n] = 3 \cdot \sin( 2 * \pi * f * n) u[n], f = 0.05$. Porniți de la un semnal de lungime 50, și estimați următoarele 50 eșantioane.
    
-   - Sinusoidă exponențială: $x[n] = 0.8^n \cdot sin( 2 * \pi * f * n) u[n], f = 0.2$. Lungime 50 + 50
+   - Sinusoidă exponențială: $x[n] = 0.8^n \cdot \sin( 2 * \pi * f * n) u[n], f = 0.2$. Lungime 50 + 50
+
+   - Semnal sinusoidal atenuat: $x[n] = \frac{\sin( 2 * \pi * f * n)}{2*\pi*f*n}  u[n], f = 0.05$. Porniți de la un semnal de lungime 50, și estimați următoarele 50 eșantioane.
 
    - Semnal de tip zgomot alb gaussian (AWGN, generat cu `randn()`). $x[n] = 0.8^n \cdot sin( 2 * \pi * f * n) u[n], f = 0.2$. Lungime 500 + 100. Apoi lungime 20 + 100. 
    
