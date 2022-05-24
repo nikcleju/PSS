@@ -77,7 +77,10 @@ cu lucrarea de laborator.
    - Semnal de tip zgomot alb uniform (generat cu `rand()`). $x[n] = 0.8^n \cdot sin( 2 * \pi * f * n) u[n], f = 0.2$. Lungime 500 + 100. Apoi lungime 20 + 100. 
 
    - Semnal sinusoidal in zgomot alb: $x[n] = 2 \cdot sin( 2 * \pi * f * n) u[n] + AWGN, f = 0.05$. Lungime 100 + 100.
+
+   - Semnalul `mtlb` încărcat cu `load mtlb;`. Estimați următoarea secundă de semnal audio.   
    
+   - Primele 150 de eșantioane din semnalul `mtlb`. Estimați următoarea secundă de semnal audio.   
 
 4. Detecția vocii (Voice Activity Detector).
 
@@ -87,7 +90,7 @@ audio.
 	a. Utilizați funcția `buffer()` pentru a împărți semnalul în ferestre 
 	cu lungimea de aproximativ 25ms.
 	b. Modelați fiecare segment semnalul ca un proces aleator AR(12), și găsiți
-	coeficienții liniari de predicție pentru fiecare segment cu funcția `lpc()`
+	coeficienții liniari de predicție pentru fiecare segment.
 	c. Pentru fiecare segment, calculați energia coeficienților de predicție
        (suma coeficienților la pătrat). Afișați secvența de valori obținută.
 	d. De pe grafic, alegeți un prag convenabil pentru a diferenția segmentele de voce de cele de pauză.
