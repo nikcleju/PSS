@@ -84,6 +84,16 @@ cu lucrarea de laborator.
    
    - Primele 150 de eșantioane din semnalul `mtlb`. Estimați următoarea secundă de semnal audio.   
 
+3. Reducerea zgomotului prin predicție înapoi.
+
+   Generați un semnal de forma:
+   
+   $x[n] = \sin( 2 * \pi * f * n) + \textrm{zgomot alb}$.
+   
+   Calculați coeficienții de predicție, și apoi estimați fiecare eșantion din semnalul $x[n]$
+   pe baza eșantioanelor precedente. Afișați semnalul astfel obținut ($x_2[n]$) cu
+   semnalul original pe aceeași figură. Ce se observă?
+
 4. Detecția vocii (Voice Activity Detector).
 
    - Încărcați semnalul audio `data_slow.wav` (cu `audioread()`), afișați-l grafic și redați-l
