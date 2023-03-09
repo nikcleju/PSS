@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.1.179">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -135,7 +135,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
@@ -167,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="autocorelația-parțială-pentru-metoda-prony">Autocorelația parțială pentru metoda Prony</h3>
 <p>Pentru metoda Prony avem nevoie de valorile unei funcții de <strong>autocorelație parțială</strong>, definită ca: <span id="eq-xcorrpart"><span class="math display">\[r_{xx}[k,l] = r_{xx}[k-l] = \sum_{n=M+1}^\infty h[n-k] h[n-l] = \sum_{n=M+1-k}^\infty h[n] h[n+(k-l)] \tag{2}\]</span></span></p>
 <p>Diferența este că <strong>suma nu începe de la <span class="math inline">\(n=0\)</span></strong>, ci de la o valoare superioară, astfel unele dintre primele elemente din sumă lipsesc.</p>
-<p>Autocorelația parțială se poate calcula precum cea obișnuită, daca primele <span class="math inline">\(M + 1 - max(k,l)\)</span> elemente ale vectorului sunt transformate în 0.</p>
+<p>Autocorelația parțială se poate calcula precum cea obișnuită, daca primele <span class="math inline">\(M + 1 - max(k,l)\)</span> elemente ale vectorului sunt transformate în 0. Autocorelația parțială <span class="math inline">\(r_{xx}[k,l]\)</span> este autocorelația în <span class="math inline">\((k-l)\)</span> a vectorului astfel modificat.</p>
 <p>Fie exemplul următor pentru a calcula <span class="math inline">\(r_{xx}[k=1, l=2]\)</span>, cu <span class="math inline">\(M=2\)</span>:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="fl">2</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">3</span><span class="op">,</span><span class="fl">4</span>]<span class="op">;</span></span>
@@ -176,7 +175,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="fl">1</span> <span class="op">:</span> <span class="va">M</span><span class="op">+</span><span class="fl">1</span><span class="op">-</span><span class="va">max</span>(<span class="va">k</span><span class="op">,</span><span class="va">l</span>)) <span class="op">=</span> <span class="fl">0</span><span class="op">;</span> <span class="co">% Setăm primele valori la 0</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>                        <span class="co">% Afiseaza x modificat</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="va">rxx</span> <span class="op">=</span> <span class="va">xcorr</span>(<span class="va">x</span>)           <span class="co">% Calculeaza autocorelatia partiala</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="va">rxx</span> <span class="op">=</span> <span class="va">xcorr</span>(<span class="va">x</span>)           <span class="co">% Calculeaza autocorelatia partiala, intreg vectorul</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="va">L</span> <span class="op">=</span> <span class="va">length</span>(<span class="va">x</span>)<span class="op">;</span>           <span class="co">% Ne intereseaza autocor. in punctul [k-l]</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="va">rxx</span>(<span class="va">L</span><span class="op">+</span><span class="va">k</span><span class="op">-</span><span class="va">l</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="metoda-prony" class="level3">
 <h3 class="anchored" data-anchor-id="metoda-prony">Metoda Prony</h3>
@@ -267,9 +269,8 @@ h_d[M-1] &amp; h_d[M-2] &amp; \cdots &amp; h_d[M-N] \\
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">linsolve</span>(<span class="va">A</span><span class="op">,</span><span class="va">y</span>)   <span class="co">% solve for a_k</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">% Find coefficients b_k</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="op">...</span>   <span class="co">% copy part of the matrix from the Pade method</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="va">b</span> <span class="op">=</span> <span class="op">...</span>   <span class="co">% compute the b_k coefficients</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="va">b</span> <span class="op">=</span> [<span class="op">...</span>] <span class="op">+</span> [<span class="op">...</span>]<span class="op">*</span><span class="va">a</span>   <span class="co">% compute the b_k coefficients</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">% Find coefficients b_k</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Implementați în Matlab o funcție generala pentru metoda Prony, pentru un sistem de orice ordin și orice semnal <span class="math inline">\(h_d[n]\)</span>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">b</span><span class="op">,</span><span class="va">a</span>] <span class="op">=</span> <span class="va">pronymet</span>(<span class="va">ordin</span><span class="op">,</span> <span class="va">hd</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Funcția va primi ca argumente:</p>
@@ -342,24 +343,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -395,42 +379,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>

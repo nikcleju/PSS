@@ -60,6 +60,7 @@ $$r_{xx}[k,l] = r_{xx}[k-l] = \sum_{n=M+1}^\infty h[n-k] h[n-l] = \sum_{n=M+1-k}
 Diferența este că **suma nu începe de la $n=0$**, ci de la o valoare superioară, astfel unele dintre primele elemente din sumă lipsesc.
 
 Autocorelația parțială se poate calcula precum cea obișnuită, daca primele $M + 1 - max(k,l)$ elemente ale vectorului sunt transformate în 0.
+Autocorelația parțială $r_{xx}[k,l]$ este autocorelația în $(k-l)$ a vectorului astfel modificat.
 
 Fie exemplul următor pentru a calcula $r_{xx}[k=1, l=2]$, cu $M=2$:
 
@@ -72,7 +73,10 @@ l=2;
 
 x(1 : M+1-max(k,l)) = 0; % Setăm primele valori la 0
 x                        % Afiseaza x modificat
-rxx = xcorr(x)           % Calculeaza autocorelatia partiala
+rxx = xcorr(x)           % Calculeaza autocorelatia partiala, intreg vectorul
+
+L = length(x);			 % Ne intereseaza autocor. in punctul [k-l]
+rxx(L+k-l)
 ```
 
 ### Metoda Prony
@@ -188,9 +192,8 @@ $${#eq-pronyb}
 
     a = linsolve(A,y)   % solve for a_k
 
+    b = [...] + [...]*a   % compute the b_k coefficients
     % Find coefficients b_k
-    M = ...   % copy part of the matrix from the Pade method
-    b = ...   % compute the b_k coefficients
     ```
 
 
