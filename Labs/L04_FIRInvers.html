@@ -417,7 +417,7 @@ b_1 \\
 b_N \\
 \end{bmatrix}
 \]</span></p>
-<p>Valorile <span class="math inline">\(r_{hh}\)</span> sunt valorile funcției de autocorelație a semnalului <span class="math inline">\(x\)</span>.</p>
+<p>Valorile <span class="math inline">\(r_{hh}\)</span> sunt valorile funcției de autocorelație a semnalului <span class="math inline">\(h[n]\)</span>.</p>
 </section>
 <section id="proiectarea-filtrului-fir-invers-prin-metoda-prony-variantă" class="level3">
 <h3 class="anchored" data-anchor-id="proiectarea-filtrului-fir-invers-prin-metoda-prony-variantă">Proiectarea filtrului FIR invers prin metoda Prony (variantă)</h3>
@@ -436,7 +436,7 @@ H(z) \cdot H_I(z) &amp;\approx 1 \\
 <ol type="1">
 <li><p>Proiectăm un filtrul <span class="math inline">\(\frac{b_0'}{1 + a_1' z^{-1} + \dots + a_N' z^{-N}}\)</span> care să aproximeze răspunsul la impuls dorit = răspuns la impuls al filtrului inițial, <span class="math inline">\(h_d[n] = h[n]\)</span></p></li>
 <li><p>După ce obținem coeficienții, simplificăm forțat fracția prin <span class="math inline">\(b_0'\)</span> (coeficientul de la numărător)</p></li>
-<li><p>Numitorul rezultat, <span class="math inline">\(1/b_0' + a_1'/b_0' z^{-1} + \dots + a_N'/b_0' z^{-M}\)</span> este funcția de sistem a filtrului FIR invers obținut <span class="math display">\[H_I(z) = 1/b_0' + a_1'/b_0' z^{-1} + \dots + a_N'/b_0' z^{-N} = b_0 + b_1 z^{-1} + \dots + b_Nz^{-N}\]</span></p></li>
+<li><p>Numitorul rezultat, <span class="math inline">\(1/b_0' + a_1'/b_0' z^{-1} + \dots + a_N'/b_0' z^{-M}\)</span>, este funcția de sistem a filtrului FIR invers obținut <span class="math display">\[H_I(z) = 1/b_0' + a_1'/b_0' z^{-1} + \dots + a_N'/b_0' z^{-N} = b_0 + b_1 z^{-1} + \dots + b_Nz^{-N}\]</span></p></li>
 </ol>
 </section>
 </section>

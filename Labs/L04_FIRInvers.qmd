@@ -300,7 +300,7 @@ b_N \\
 \end{bmatrix}
 $$
 
-Valorile $r_{hh}$ sunt valorile funcției de autocorelație a semnalului $x$.
+Valorile $r_{hh}$ sunt valorile funcției de autocorelație a semnalului $h[n]$.
 
 ### Proiectarea filtrului FIR invers prin metoda Prony (variantă)
 
@@ -329,9 +329,8 @@ Rezolvare cu metoda Prony:
 
 2. După ce obținem coeficienții, simplificăm forțat fracția prin $b_0'$ (coeficientul de la numărător)
 
-3. Numitorul rezultat, $1/b_0' + a_1'/b_0' z^{-1} + \dots + a_N'/b_0' z^{-M}$ este funcția de sistem a filtrului FIR invers obținut
+3. Numitorul rezultat, $1/b_0' + a_1'/b_0' z^{-1} + \dots + a_N'/b_0' z^{-M}$, este funcția de sistem a filtrului FIR invers obținut
    $$H_I(z) = 1/b_0' + a_1'/b_0' z^{-1} + \dots + a_N'/b_0' z^{-N} = b_0 + b_1 z^{-1} + \dots + b_Nz^{-N}$$
-
 
 ## Exercițiu teoretic
 
