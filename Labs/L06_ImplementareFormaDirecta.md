@@ -1,6 +1,6 @@
 ---
 title: Implementarea filtrelor digitale
-subtitle: Laborator 4, PSS
+subtitle: Laborator 6, PSS
 documentclass: scrartcl
 fontsize: 12pt
 ---
@@ -51,6 +51,11 @@ $$H(z) = H_1(z) + H_2(z) + ... + H_n(z)$$
 Sistemul este implementat din subsistemele mai mici $H_1(z), H_2(z) ... H_n(z)$ aranjate **în paralel**.
 
 Exemplu:
+
+![Exemplu de implementare în forma paralel](img/ParallelForm.png){width=50%}
+
+Sursa imaginii: [https://www.expertsmind.com/learning/parallel-realization-of-iir-filters-assignment-help-7342873911.aspx]
+(https://www.expertsmind.com/learning/parallel-realization-of-iir-filters-assignment-help-7342873911.aspx)
 
 ![Exemplu de implementare în forma paralel](img/ParallelForm.gif){width=50%}
 
