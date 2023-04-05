@@ -66,6 +66,8 @@ $$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
    Utilizați funcția `tf2latc()` pentru a converti coeficienții din vectorul `Num` (corespunzători formelor directe) în coeficienț ai formei *lattice*.
    Denumiți vectorul rezultat $K$ și afișați-l.
 
+   Utilizați apoi și funcța inversă `latc2tf()` pentru a converti coeficienții din forma *lattice* `K` înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în `Num`.
+
 3. În mediul Simulink, realizați implementarea FIR filtrului de mai sus în forma *lattice*.
 
    a. Implementați schema, punând în Gain-uri coeficienții din vectorul `K` (`K(1)`, `K(2)`, etc)

@@ -176,7 +176,8 @@ B_m(z) &amp;= z^{-m} B_m(z^{-1}) = \textrm{ similar cu }A_m(z)\textrm{, cu coefi
 <li>Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.</li>
 </ol></li>
 <li><p>Exportați coeficienții filtrului de mai sus în Workspace-ul Matlab, cu numele <code>Num</code>.</p>
-<p>Utilizați funcția <code>tf2latc()</code> pentru a converti coeficienții din vectorul <code>Num</code> (corespunzători formelor directe) în coeficienț ai formei <em>lattice</em>. Denumiți vectorul rezultat <span class="math inline">\(K\)</span> și afișați-l.</p></li>
+<p>Utilizați funcția <code>tf2latc()</code> pentru a converti coeficienții din vectorul <code>Num</code> (corespunzători formelor directe) în coeficienț ai formei <em>lattice</em>. Denumiți vectorul rezultat <span class="math inline">\(K\)</span> și afișați-l.</p>
+<p>Utilizați apoi și funcța inversă <code>latc2tf()</code> pentru a converti coeficienții din forma <em>lattice</em> <code>K</code> înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în <code>Num</code>.</p></li>
 <li><p>În mediul Simulink, realizați implementarea FIR filtrului de mai sus în forma <em>lattice</em>.</p>
 <ol type="a">
 <li>Implementați schema, punând în Gain-uri coeficienții din vectorul <code>K</code> (<code>K(1)</code>, <code>K(2)</code>, etc)</li>
