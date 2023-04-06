@@ -177,24 +177,39 @@ B_m(z) &amp;= z^{-m} B_m(z^{-1}) = \textrm{ similar cu }A_m(z)\textrm{, cu coefi
 </ol></li>
 <li><p>Exportați coeficienții filtrului de mai sus în Workspace-ul Matlab, cu numele <code>Num</code>.</p>
 <p>Utilizați funcția <code>tf2latc()</code> pentru a converti coeficienții din vectorul <code>Num</code> (corespunzători formelor directe) în coeficienț ai formei <em>lattice</em>. Denumiți vectorul rezultat <span class="math inline">\(K\)</span> și afișați-l.</p>
-<p>Utilizați apoi și funcța inversă <code>latc2tf()</code> pentru a converti coeficienții din forma <em>lattice</em> <code>K</code> înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în <code>Num</code>.</p></li>
+<p>Utilizați apoi și funcța inversă <code>latc2tf()</code> pentru a converti coeficienții din forma <em>lattice</em> <code>K</code> înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în <code>Num</code>.</p>
+<p><strong>Observația 1</strong>:</p>
+<ul>
+<li><p>E posibil să aveți o eroare la funcția <code>tf2latc()</code>, de forma:</p>
+<pre><code>Error using levdown
+At least one of the reflection coefficients is equal to one.
+The algorithm fails for this case.</code></pre>
+<p>Acest lucru se întâmplă pentru că vectorul <code>Num</code> este simetric (primul coeficient este egal cu ultimul, etc) (filtru de fază liniară).</p>
+<p>Pentru a evita eroarea, trebuie să stricăm această simetrie, de exemplu adăugând un mic <span class="math inline">\(\epsilon\)</span> la primul coeficient:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">Num</span>(<span class="fl">1</span>) <span class="op">=</span> <span class="va">Num</span>(<span class="fl">1</span>) <span class="op">+</span> <span class="fl">0.0000001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p><strong>Observația 2</strong>:</p>
+<ul>
+<li><p>Utilizând <code>latc2tf()</code> nu veți obține exact coeficienții inițiali din <code>Num</code>, ci coeficienții raportați la prima valoare, <code>Num / Num(1)</code>. Acest lucru se întâmplă pentru că forma de implementare <em>lattice</em> necesită ca primul coeficient din <span class="math inline">\(H(z)\)</span> să fie neapărat de valoare 1.</p>
+<p>Așadat, coeficienții din vectorul <code>K</code> nu implementează de fapt filtrul <code>Num</code>, ci filtrul <code>Num / Num(1)</code>. Asta înseamnă că în schema Simulink trebuie ca semnalul de intrare să fie trecut printr-un Gain suplimentar înainte de a intra în schema <em>lattice</em>, de valoare <code>Num(1)</code> (adică <span class="math inline">\(b_0\)</span>).</p></li>
+</ul></li>
 <li><p>În mediul Simulink, realizați implementarea FIR filtrului de mai sus în forma <em>lattice</em>.</p>
 <ol type="a">
 <li>Implementați schema, punând în Gain-uri coeficienții din vectorul <code>K</code> (<code>K(1)</code>, <code>K(2)</code>, etc)</li>
-<li>Afișati răspunsul la impuls (intrarea “Discrete Impulse”) și răspunsul la treapta unitate (intrarea “Step”).</li>
+<li>Puneți la ieșire un bloc de vizualizare (“Scope”) și afișati răspunsul la impuls (intrarea “Discrete Impulse”) și răspunsul la treapta unitate (intrarea “Step”).</li>
 </ol></li>
 <li><p>În Matlab, creați o funcție pentru a filtra un vector <code>x</code> cu un filtru FIR pentru care se cunosc coeficienții <em>lattice</em> <code>K</code>, obținînd vectorul de ieșire <code>y</code>.</p>
 <p>Găsiți o metodă de a calcula ieșirea <code>y[n]</code> la un moment oarecare <code>n</code>, pe baza schemei. Cu alte cuvinte, dacă avem schema, cum putem scrie niște ecuații sau linii de cod pentru a o implementa?</p>
 <p>Puteți utiliza următorul template orientativ:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">y</span> <span class="op">=</span> <span class="va">filter_lattice_FIR</span>(<span class="va">K</span><span class="op">,</span> <span class="va">x</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">% Filter the vector x with a lattice FIR filter with coefficients K</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">ord</span> <span class="op">=</span> <span class="va">length</span>(<span class="va">K</span>)<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Write code here:</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">y</span> <span class="op">=</span> <span class="va">filter_lattice_FIR</span>(<span class="va">K</span><span class="op">,</span> <span class="va">x</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">% Filter the vector x with a lattice FIR filter with coefficients K</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">ord</span> <span class="op">=</span> <span class="va">length</span>(<span class="va">K</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Write code here:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Testați funcția, apelând-o cu coeficienții <code>K</code> ai filtrului proiectat anterior, pentru semnalul de intrare <code>x</code> de forma:</p>
 <ol type="a">
 <li>un vector cu un 1 urmat de 19 zerouri (impuls unitate)</li>
