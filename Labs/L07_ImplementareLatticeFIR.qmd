@@ -59,7 +59,7 @@ $$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
     
    a. Un filtru trece-jos FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 5kHz (limitele benzii de tranziție de la 4.8kHz la 5.2kHz) la o frecvență de eșantionare de 44.1kHz;
    a. Un filtru trece-sus FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 1kHz (limitele benzii de tranziție de la 900Hz la 1.1kHz) la o frecvență de eșantionare de 44.1kHz;
-   a. Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere în jur de 700Hz si 4kHz (benzile de tranziție între 700Hz - 900Hz, respectiv 3900Hz - 4100Hz) la o frecvență de eșantionare de 44.1kHz.
+   a. Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere în jur de 700Hz si 4kHz (benzile de tranziție între 600Hz - 800Hz, respectiv 3900Hz - 4100Hz) la o frecvență de eșantionare de 44.1kHz.
 
    Observație: La acest tip de filtru, `fdatool` nu necesită specificarea frecvenței de taiere, ci limitele benzii de tranziție din jurul frecvenței de tăiere.
 
@@ -91,7 +91,7 @@ $$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
 
    - Utilizând `latc2tf()` nu veți obține exact coeficienții inițiali din `Num`, ci coeficienții raportați la prima valoare, `Num / Num(1)`. Acest lucru se întâmplă pentru că forma de implementare *lattice* necesită ca primul coeficient din $H(z)$ să fie neapărat de valoare 1.
 
-     Așadat, coeficienții din vectorul `K` nu implementează de fapt filtrul `Num`, ci filtrul `Num / Num(1)`. 
+     Așadar, coeficienții din vectorul `K` nu implementează de fapt filtrul `Num`, ci filtrul `Num / Num(1)`. 
      Asta înseamnă că în schema Simulink trebuie ca semnalul de intrare să fie trecut printr-un Gain suplimentar
      înainte de a intra în schema *lattice*, de valoare `Num(1)` (adică $b_0$).
 
@@ -114,7 +114,10 @@ $$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
    ord = length(K);
  
    % Write code here:
-   ...
+
+   for i=1:length(x)
+      y(n) = ... 
+   end
 
    end
    ```

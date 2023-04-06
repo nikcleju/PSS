@@ -173,7 +173,7 @@ B_m(z) &amp;= z^{-m} B_m(z^{-1}) = \textrm{ similar cu }A_m(z)\textrm{, cu coefi
 <ol type="a">
 <li>Un filtru trece-jos FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 5kHz (limitele benzii de tranziție de la 4.8kHz la 5.2kHz) la o frecvență de eșantionare de 44.1kHz;</li>
 <li>Un filtru trece-sus FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 1kHz (limitele benzii de tranziție de la 900Hz la 1.1kHz) la o frecvență de eșantionare de 44.1kHz;</li>
-<li>Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere în jur de 700Hz si 4kHz (benzile de tranziție între 700Hz - 900Hz, respectiv 3900Hz - 4100Hz) la o frecvență de eșantionare de 44.1kHz.</li>
+<li>Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere în jur de 700Hz si 4kHz (benzile de tranziție între 600Hz - 800Hz, respectiv 3900Hz - 4100Hz) la o frecvență de eșantionare de 44.1kHz.</li>
 </ol>
 <p>Observație: La acest tip de filtru, <code>fdatool</code> nu necesită specificarea frecvenței de taiere, ci limitele benzii de tranziție din jurul frecvenței de tăiere.</p></li>
 <li><p>Exportați coeficienții filtrului de mai sus în Workspace-ul Matlab, cu numele <code>Num</code>.</p>
@@ -192,7 +192,7 @@ The algorithm fails for this case.</code></pre>
 <p><strong>Observația 2</strong>:</p>
 <ul>
 <li><p>Utilizând <code>latc2tf()</code> nu veți obține exact coeficienții inițiali din <code>Num</code>, ci coeficienții raportați la prima valoare, <code>Num / Num(1)</code>. Acest lucru se întâmplă pentru că forma de implementare <em>lattice</em> necesită ca primul coeficient din <span class="math inline">\(H(z)\)</span> să fie neapărat de valoare 1.</p>
-<p>Așadat, coeficienții din vectorul <code>K</code> nu implementează de fapt filtrul <code>Num</code>, ci filtrul <code>Num / Num(1)</code>. Asta înseamnă că în schema Simulink trebuie ca semnalul de intrare să fie trecut printr-un Gain suplimentar înainte de a intra în schema <em>lattice</em>, de valoare <code>Num(1)</code> (adică <span class="math inline">\(b_0\)</span>).</p></li>
+<p>Așadar, coeficienții din vectorul <code>K</code> nu implementează de fapt filtrul <code>Num</code>, ci filtrul <code>Num / Num(1)</code>. Asta înseamnă că în schema Simulink trebuie ca semnalul de intrare să fie trecut printr-un Gain suplimentar înainte de a intra în schema <em>lattice</em>, de valoare <code>Num(1)</code> (adică <span class="math inline">\(b_0\)</span>).</p></li>
 </ul></li>
 <li><p>În mediul Simulink, realizați implementarea FIR filtrului de mai sus în forma <em>lattice</em>.</p>
 <ol type="a">
@@ -208,9 +208,12 @@ The algorithm fails for this case.</code></pre>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">ord</span> <span class="op">=</span> <span class="va">length</span>(<span class="va">K</span>)<span class="op">;</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Write code here:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">i</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="va">length</span>(<span class="va">x</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>   <span class="va">y</span>(<span class="va">n</span>) <span class="op">=</span> <span class="op">...</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Testați funcția, apelând-o cu coeficienții <code>K</code> ai filtrului proiectat anterior, pentru semnalul de intrare <code>x</code> de forma:</p>
 <ol type="a">
 <li>un vector cu un 1 urmat de 19 zerouri (impuls unitate)</li>
