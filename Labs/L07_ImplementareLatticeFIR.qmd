@@ -68,10 +68,35 @@ $$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
 
    Utilizați apoi și funcța inversă `latc2tf()` pentru a converti coeficienții din forma *lattice* `K` înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în `Num`.
 
+   **Observația 1**: 
+
+   - E posibil să aveți o eroare la funcția `tf2latc()`, de forma:
+
+     ```
+     Error using levdown
+     At least one of the reflection coefficients is equal to one.
+     The algorithm fails for this case.
+     ```
+     Acest lucru se întâmplă pentru că vectorul `Num` este simetric (primul coeficient este egal cu ultimul, etc) (filtru de fază liniară).
+
+     Pentru a evita eroarea, trebuie să stricăm această simetrie, de exemplu adăugând un mic $\epsilon$ la primul coeficient:
+     
+     ```matlab
+     Num(1) = Num(1) + 0.0000001
+     ```
+
+   **Observația 2**: 
+
+   - Utilizând `latc2tf()` nu veți obține exact coeficienții inițiali din `Num`, ci coeficienții raportați la prima valoare, `Num / Num(1)`. Acest lucru se întâmplă pentru că forma de implementare *lattice* necesită ca primul coeficient din $H(z)$ să fie neapărat de valoare 1.
+
+     Așadat, coeficienții din vectorul `K` nu implementează de fapt filtrul `Num`, ci filtrul `Num / Num(1)`. 
+     Asta înseamnă că în schema Simulink trebuie ca semnalul de intrare să fie trecut printr-un Gain suplimentar
+     înainte de a intra în schema *lattice*, de valoare `Num(1)` (adică $b_0$).
+
 3. În mediul Simulink, realizați implementarea FIR filtrului de mai sus în forma *lattice*.
 
    a. Implementați schema, punând în Gain-uri coeficienții din vectorul `K` (`K(1)`, `K(2)`, etc)
-   b. Afișati răspunsul la impuls (intrarea "Discrete Impulse") și răspunsul la treapta unitate (intrarea "Step").
+   b. Puneți la ieșire un bloc de vizualizare ("Scope") și afișati răspunsul la impuls (intrarea "Discrete Impulse") și răspunsul la treapta unitate (intrarea "Step").
 
 4. În Matlab, creați o funcție pentru a filtra un vector `x` cu un filtru FIR pentru care se cunosc coeficienții *lattice* `K`, obținînd vectorul de ieșire `y`.
 
