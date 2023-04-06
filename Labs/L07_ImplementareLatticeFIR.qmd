@@ -57,9 +57,11 @@ $$H(z) = 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3}$$
 
 1. În Matlab, utilizați utilitarul `fdatool` pentru a proiecta unul din filtrele următoare:
     
-   a. Un filtru trece-jos FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;
-   a. Un filtru trece-sus FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;
-   a. Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.
+   a. Un filtru trece-jos FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 5kHz (limitele benzii de tranziție de la 4.8kHz la 5.2kHz) la o frecvență de eșantionare de 44.1kHz;
+   a. Un filtru trece-sus FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 1kHz (limitele benzii de tranziție de la 900Hz la 1.1kHz) la o frecvență de eșantionare de 44.1kHz;
+   a. Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere în jur de 700Hz si 4kHz (benzile de tranziție între 700Hz - 900Hz, respectiv 3900Hz - 4100Hz) la o frecvență de eșantionare de 44.1kHz.
+
+   Observație: La acest tip de filtru, `fdatool` nu necesită specificarea frecvenței de taiere, ci limitele benzii de tranziție din jurul frecvenței de tăiere.
 
 2. Exportați coeficienții filtrului de mai sus în Workspace-ul Matlab, cu numele `Num`.
 

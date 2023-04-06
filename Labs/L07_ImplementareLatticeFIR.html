@@ -171,10 +171,11 @@ B_m(z) &amp;= z^{-m} B_m(z^{-1}) = \textrm{ similar cu }A_m(z)\textrm{, cu coefi
 <ol type="1">
 <li><p>În Matlab, utilizați utilitarul <code>fdatool</code> pentru a proiecta unul din filtrele următoare:</p>
 <ol type="a">
-<li>Un filtru trece-jos FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;</li>
-<li>Un filtru trece-sus FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;</li>
-<li>Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.</li>
-</ol></li>
+<li>Un filtru trece-jos FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 5kHz (limitele benzii de tranziție de la 4.8kHz la 5.2kHz) la o frecvență de eșantionare de 44.1kHz;</li>
+<li>Un filtru trece-sus FIR de ordin 5, de tip echiriplu, cu frecvența de tăiere în jur de 1kHz (limitele benzii de tranziție de la 900Hz la 1.1kHz) la o frecvență de eșantionare de 44.1kHz;</li>
+<li>Un filtru trece-bandă FIR de ordin 5, de tip echiriplu, cu banda de trecere în jur de 700Hz si 4kHz (benzile de tranziție între 700Hz - 900Hz, respectiv 3900Hz - 4100Hz) la o frecvență de eșantionare de 44.1kHz.</li>
+</ol>
+<p>Observație: La acest tip de filtru, <code>fdatool</code> nu necesită specificarea frecvenței de taiere, ci limitele benzii de tranziție din jurul frecvenței de tăiere.</p></li>
 <li><p>Exportați coeficienții filtrului de mai sus în Workspace-ul Matlab, cu numele <code>Num</code>.</p>
 <p>Utilizați funcția <code>tf2latc()</code> pentru a converti coeficienții din vectorul <code>Num</code> (corespunzători formelor directe) în coeficienț ai formei <em>lattice</em>. Denumiți vectorul rezultat <span class="math inline">\(K\)</span> și afișați-l.</p>
 <p>Utilizați apoi și funcța inversă <code>latc2tf()</code> pentru a converti coeficienții din forma <em>lattice</em> <code>K</code> înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în <code>Num</code>.</p>
