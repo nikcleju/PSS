@@ -77,14 +77,6 @@ $$H(z) = \frac{1}{ 1 + \frac{2}{5}z^{-1} + \frac{7}{20}z^{-2} + \frac{1}{2}z^{-3
 
    Utilizați apoi și funcța inversă `latc2tf()` pentru a converti coeficienții din forma *lattice* `K` și `V` înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în `Num` și `Den`.
 
-   **Observația 1**: 
-
-   - Utilizând `latc2tf()` nu veți obține exact coeficienții inițiali din `Num`, ci coeficienții raportați la prima valoare, `Num / Num(1)`. Acest lucru se întâmplă pentru că forma de implementare *lattice* necesită ca primul coeficient din $H(z)$ să fie neapărat de valoare 1.
-
-     Așadar, coeficienții din vectorul `K` nu implementează de fapt filtrul `Num`, ci filtrul `Num / Num(1)`. 
-     Asta înseamnă că în schema Simulink trebuie ca semnalul de intrare să fie trecut printr-un Gain suplimentar
-     înainte de a intra în schema *lattice*, de valoare `Num(1)` (adică $b_0$).
-
 3. În mediul Simulink, realizați implementarea IIR filtrului de mai sus în forma *lattice*.
 
    a. Implementați schema, punând în Gain-uri coeficienții din vectorii `K` (`K(1)`, `K(2)`, etc) și `V` (`V(1)`, `V(2)`, etc)

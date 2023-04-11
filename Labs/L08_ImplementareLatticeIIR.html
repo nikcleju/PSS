@@ -184,12 +184,7 @@ C_{m-1}(z) &amp;= C_m(z) - \nu_m  \cdot B_m(z)
 </ol></li>
 <li><p>Exportați coeficienții filtrului de mai sus în Workspace-ul Matlab, cu numele <code>Num</code> și <code>Den</code>.</p>
 <p>Utilizați funcția <code>tf2latc()</code> pentru a converti coeficienții din vectorii <code>Num</code> și <code>Den</code> (corespunzători formelor directe) în coeficienții <code>K</code> și <code>V</code> ai formei <em>lattice</em>.</p>
-<p>Utilizați apoi și funcța inversă <code>latc2tf()</code> pentru a converti coeficienții din forma <em>lattice</em> <code>K</code> și <code>V</code> înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în <code>Num</code> și <code>Den</code>.</p>
-<p><strong>Observația 1</strong>:</p>
-<ul>
-<li><p>Utilizând <code>latc2tf()</code> nu veți obține exact coeficienții inițiali din <code>Num</code>, ci coeficienții raportați la prima valoare, <code>Num / Num(1)</code>. Acest lucru se întâmplă pentru că forma de implementare <em>lattice</em> necesită ca primul coeficient din <span class="math inline">\(H(z)\)</span> să fie neapărat de valoare 1.</p>
-<p>Așadar, coeficienții din vectorul <code>K</code> nu implementează de fapt filtrul <code>Num</code>, ci filtrul <code>Num / Num(1)</code>. Asta înseamnă că în schema Simulink trebuie ca semnalul de intrare să fie trecut printr-un Gain suplimentar înainte de a intra în schema <em>lattice</em>, de valoare <code>Num(1)</code> (adică <span class="math inline">\(b_0\)</span>).</p></li>
-</ul></li>
+<p>Utilizați apoi și funcța inversă <code>latc2tf()</code> pentru a converti coeficienții din forma <em>lattice</em> <code>K</code> și <code>V</code> înapoi în coeficienți ai formei directe, si verificați că se obțin aceleași valori ca în <code>Num</code> și <code>Den</code>.</p></li>
 <li><p>În mediul Simulink, realizați implementarea IIR filtrului de mai sus în forma <em>lattice</em>.</p>
 <ol type="a">
 <li>Implementați schema, punând în Gain-uri coeficienții din vectorii <code>K</code> (<code>K(1)</code>, <code>K(2)</code>, etc) și <code>V</code> (<code>V(1)</code>, <code>V(2)</code>, etc)</li>
