@@ -1,0 +1,153 @@
+---
+title: Implementarea în spațiul stărilor a filtrelor digitale IIR
+subtitle: Laborator 9, PSS
+format:
+  html: default
+  pdf: default
+  ipynb: default
+
+toc: true
+number-depth: 2
+number-sections: true
+
+jupyter: python3
+execute:
+  freeze: true
+  eval: false
+
+crossref:
+  eq-prefix: ""   # (default is "Equation")
+  fig-prefix: "Fig."   # (default is "Equation")
+---
+
+\newcommand*{\underuparrow}[1]{\ensuremath{\underset{\uparrow}{#1}}}
+
+## Obiectiv
+
+Familiarizarea studenților cu formele de implementare tip în spațiul stărilor
+a filtrelor IIR.
+
+## Noțiuni teoretice
+
+### Implementarea în spațiul stărilor de tipul 1
+
+![Ecuațiile de implementare in spațiul stărilor tip I, pentru un sistem IIR de ordinul 3](img/IIR_StateSpaceType1_Eqs.png){#fig-eqstip1 width=70%}
+
+![Realizarea sistemului conform ecuațiilor de mai sus (tip I, ordinul 3)](img/IIR_StateSpaceType1_Fig.png){#fig-figtip1 width=70%}
+
+Ecuațiile care definesc implementarea în spațiul stărilor tip I sunt prezentate
+în @fig-eqstip1, pentru un sistem IIR de ordinul 3.
+
+Realizarea sistemului conform acestor ecuații este în @fig-figtip1.
+
+### Implementarea în spațiul stărilor de tipul 2
+
+![Ecuațiile implementării în spațiul stărilor tip II, pentru un sistem IIR de ordinul 3](img/IIR_StateSpaceType2_Eqs.png){#fig-eqstip2 width=60%}
+
+![Realizarea sistemului conform ecuațiilor de mai sus (tip II, ordinul 3)](img/IIR_StateSpaceType2_Fig.png){#fig-figtip2 width=70%}
+
+Ecuațiile care definesc implementarea în spațiul stărilor tip I sunt prezentate
+în @fig-eqstip2, pentru un sistem IIR de ordinul 3.
+
+Realizarea sistemului conform acestor ecuații este în @fig-figtip2.
+
+### Ecuații pentru cazul general
+
+![Ecuațiile generale in spațiul stărilor](img/IIR_StateSpace_EqsGeneral.png){#fig-eqsgen width=35%}
+
+![Definiția termenilor pentru spațiul stărilor tip I](img/IIR_StateSpaceType1_EqsGeneral.png){#fig-eqsgentip1 width=70%}
+
+![Definiția termenilor pentru spațiul stărilor tip II](img/IIR_StateSpaceType2_EqsGeneral.png){#fig-eqsgentip2 width=70%}
+
+În cazul general, întotdeauna avem cele două ecuații din @fig-eqsgen:
+
+- **Ecuația de stare**: dă starea $\mathbf{v}[n+1]$ la momentul următor în funcție de starea la momentul curent $\mathbf{v}[n]$ și intrarea curentă $x[n]$ș
+- **Ecuație de ieșire**: $\mathbf{y}[n]$ ieșirea le momentul curent în funcție de starea la momentul curent $\mathbf{v}[n]$ și intrarea curentă $x[n]$.
+
+Particularizarea termenilor care apar în cele două ecuații, pentru tipul I
+și tipul II, este dată în @fig-eqsgentip1 și @fig-eqsgentip2.
+
+## Exerciții teoretice
+
+1. Fie sistemul IIR cu funcția de sistem
+	$$H(z) = \frac{1 + 2z^{-1} + 3 z^{-2} + 2 z^{-3}}{1 + 0.9z^{-1} + 0.8 z^{-2} + 0.5 z^{-3}}$$
+
+	a. Să se implementeze sistemul în spațiul stărilor tip I și tip II.
+    b. Calculați primele 5 valori ale răspunsului la treaptă, pentru condițiile inițiale
+	$$v[0]=
+	\begin{bmatrix}
+	0 \\
+	0 \\
+	1 \\
+	\end{bmatrix}$$
+
+2. Fie sistemul descris în spațiul stărilor de următoarele ecuații:
+
+	$$v[n+1] =
+	\begin{bmatrix}
+	0     & 1 \\
+	-0.81 & 1
+	\end{bmatrix}
+	v[n] +
+	\begin{bmatrix}
+	0 \\
+	1
+	\end{bmatrix}
+	x[n]
+	$$
+	$$y[n] =
+	\begin{bmatrix}
+	- 1.81 & 1
+	\end{bmatrix}
+	+ x[n]
+	$$
+
+	a. Determinați funcția de transfer a circuitului
+	b. Calculați primele 5 valori ale răspunsului la treaptă, pentru condițiile inițiale
+	$v[0]=
+	\begin{bmatrix}
+	0 \\
+	1
+	\end{bmatrix}$
+	c. Reprezentați implementarea în spațiul stărilor (I și II) și în forma directă II.
+
+
+
+## Exerciții practice
+
+3. Utilizați utilitarul `fdatool` pentru a proiecta unul din filtrele următoare:
+
+    a. Un filtru trece-jos IIR de ordin 4, de tip eliptic, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-sus IIR de ordin 4, de tip eliptic, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;
+    a. Un filtru trece-bandă IIR de ordin 4, de tip eliptic, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.
+
+    Exportați coeficienții în Workspace-ul Matlab.
+
+4. În Matlab implementați o funcție `filter_spst(b, a, x)` care filtrează un semnal `x`
+cu filtrul definit de coeficienții `b` și `a`, de orice ordin $n$.
+    - Implementarea va fi realizată conform ecuațiilor de tip spațiul stărilor I
+
+
+5. Testați funcția realizată mai sus coeficienții obținuți la exercițiul 3), pentru un semnal audio oarecare.
+
+6. Modificați funcția pentru a face filtrarea temporală a unei secvențe video, pentru un filtru de ordinul trei.
+   Testați funcția pe secvența video `veh_small.mp4`.
+
+   Pentru prelucrarea unei secvențe video in Matlab puteți folosi următorul exemplu:
+
+   ```
+   v = VideoReader('videofile.mp4');
+
+   % Read all the frames from the video, one frame at a time.
+
+   while hasFrame(v)
+    frame = readFrame(v);
+
+	% Do the processing here
+
+   end
+   ```
+
+## Întrebări finale
+
+1. TBD
