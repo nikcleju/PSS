@@ -143,7 +143,22 @@ cu filtrul definit de coeficienții `b` și `a`, de orice ordin $n$.
    while hasFrame(v)
     frame = readFrame(v);
 
-	% Do the processing here
+	% Do the processing heres
+
+	% Output equation
+	y = ...
+	
+	% State equation
+	v1_next = ...
+	v2_next = ...
+	v3_next = ...
+	v4_next = ...
+
+	% Update for next iteration
+	v1 = v1_next;
+	v2 = v2_next;
+	v3 = v3_next;
+	v4 = v4_next;
 
    end
    ```
