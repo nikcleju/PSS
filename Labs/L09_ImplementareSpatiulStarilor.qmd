@@ -115,7 +115,7 @@ Particularizarea termenilor care apar în cele două ecuații, pentru tipul I
 
 ## Exerciții practice
 
-3. Utilizați utilitarul `fdatool` pentru a proiecta unul din filtrele următoare:
+1. Utilizați utilitarul `fdatool` pentru a proiecta unul din filtrele următoare:
 
     a. Un filtru trece-jos IIR de ordin 4, de tip eliptic, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;
     a. Un filtru trece-sus IIR de ordin 4, de tip eliptic, cu frecvența de tăiere de 1kHz la o frecvență de eșantionare de 44.1kHz;
@@ -123,17 +123,10 @@ Particularizarea termenilor care apar în cele două ecuații, pentru tipul I
 
     Exportați coeficienții în Workspace-ul Matlab.
 
-4. În Matlab implementați o funcție `filter_spst(b, a, x)` care filtrează un semnal `x`
-cu filtrul definit de coeficienții `b` și `a`, de orice ordin $n$.
-    - Implementarea va fi realizată conform ecuațiilor de tip spațiul stărilor I
-
-
-5. Testați funcția realizată mai sus coeficienții obținuți la exercițiul 3), pentru un semnal audio oarecare.
-
-6. Modificați funcția pentru a face filtrarea temporală a unei secvențe video, pentru un filtru de ordinul trei.
+2. Completați programul de mai jos pentru a face filtrarea temporală a unei secvențe video, cu filtrul proiectat mai sus.
    Testați funcția pe secvența video `veh_small.mp4`.
 
-   Pentru prelucrarea unei secvențe video in Matlab puteți folosi următorul exemplu:
+   Folosiți ecuațiile de implementare în spațiul stărilor tip I, dar extinse pentru un sistem de ordinul 4.
 
    ```
    v = VideoReader('videofile.mp4');
@@ -147,7 +140,7 @@ cu filtrul definit de coeficienții `b` și `a`, de orice ordin $n$.
 
 	% Output equation
 	y = ...
-	
+
 	% State equation
 	v1_next = ...
 	v2_next = ...
@@ -162,6 +155,13 @@ cu filtrul definit de coeficienții `b` și `a`, de orice ordin $n$.
 
    end
    ```
+
+
+3. În Matlab implementați o funcție `filter_spst(b, a, x)` care filtrează un semnal `x`
+cu filtrul definit de coeficienții `b` și `a`, de orice ordin $n$.
+    - Implementarea va fi realizată conform ecuațiilor de tip spațiul stărilor I
+
+4. Testați funcția realizată mai sus coeficienții obținuți la exercițiul 3), pentru un semnal audio oarecare.
 
 ## Întrebări finale
 

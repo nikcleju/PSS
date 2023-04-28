@@ -188,7 +188,7 @@ x[n]
 </section>
 <section id="exerciții-practice" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="exerciții-practice"><span class="header-section-number">4</span> Exerciții practice</h2>
-<ol start="3" type="1">
+<ol type="1">
 <li><p>Utilizați utilitarul <code>fdatool</code> pentru a proiecta unul din filtrele următoare:</p>
 <ol type="a">
 <li>Un filtru trece-jos IIR de ordin 4, de tip eliptic, cu frecvența de tăiere de 5kHz la o frecvență de eșantionare de 44.1kHz;</li>
@@ -196,13 +196,8 @@ x[n]
 <li>Un filtru trece-bandă IIR de ordin 4, de tip eliptic, cu banda de trecere între 700Hz si 4kHz la o frecvență de eșantionare de 44.1kHz.</li>
 </ol>
 <p>Exportați coeficienții în Workspace-ul Matlab.</p></li>
-<li><p>În Matlab implementați o funcție <code>filter_spst(b, a, x)</code> care filtrează un semnal <code>x</code> cu filtrul definit de coeficienții <code>b</code> și <code>a</code>, de orice ordin <span class="math inline">\(n\)</span>.</p>
-<ul>
-<li>Implementarea va fi realizată conform ecuațiilor de tip spațiul stărilor I</li>
-</ul></li>
-<li><p>Testați funcția realizată mai sus coeficienții obținuți la exercițiul 3), pentru un semnal audio oarecare.</p></li>
-<li><p>Modificați funcția pentru a face filtrarea temporală a unei secvențe video, pentru un filtru de ordinul trei. Testați funcția pe secvența video <code>veh_small.mp4</code>.</p>
-<p>Pentru prelucrarea unei secvențe video in Matlab puteți folosi următorul exemplu:</p>
+<li><p>Completați programul de mai jos pentru a face filtrarea temporală a unei secvențe video, cu filtrul proiectat mai sus. Testați funcția pe secvența video <code>veh_small.mp4</code>.</p>
+<p>Folosiți ecuațiile de implementare în spațiul stărilor tip I, dar extinse pentru un sistem de ordinul 4.</p>
 <pre><code>v = VideoReader('videofile.mp4');
 
 % Read all the frames from the video, one frame at a time.
@@ -228,6 +223,11 @@ while hasFrame(v)
  v4 = v4_next;
 
 end</code></pre></li>
+<li><p>În Matlab implementați o funcție <code>filter_spst(b, a, x)</code> care filtrează un semnal <code>x</code> cu filtrul definit de coeficienții <code>b</code> și <code>a</code>, de orice ordin <span class="math inline">\(n\)</span>.</p>
+<ul>
+<li>Implementarea va fi realizată conform ecuațiilor de tip spațiul stărilor I</li>
+</ul></li>
+<li><p>Testați funcția realizată mai sus coeficienții obținuți la exercițiul 3), pentru un semnal audio oarecare.</p></li>
 </ol>
 </section>
 <section id="întrebări-finale" class="level2" data-number="5">
