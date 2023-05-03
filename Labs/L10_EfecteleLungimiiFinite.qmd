@@ -1,0 +1,111 @@
+---
+title: Efectele reprezentării în lungime finită a coeficienților
+ în filtrarea digitală
+subtitle: Laborator 10, PSS
+format:
+  html: default
+  pdf: default
+  ipynb: default
+
+toc: true
+number-depth: 2
+number-sections: true
+
+jupyter: python3
+execute:
+  freeze: true
+  eval: false
+
+crossref:
+  eq-prefix: ""   # (default is "Equation")
+  fig-prefix: "Fig."   # (default is "Equation")
+---
+
+\newcommand*{\underuparrow}[1]{\ensuremath{\underset{\uparrow}{#1}}}
+
+## Obiectiv
+
+Studiul efectelor produse de implementarea în virgulă fixă a coeficienților
+unui filtru digital.
+
+## Noțiuni teoretice
+
+### Reprezentarea numerelor fracționare în baza 2
+
+![Reprezentarea numerelor fracționare în baza 2](img/L10_Binary.png)
+
+TBD
+
+### Implementarea filtrelor cu secțiuni de ordinul 2
+
+Implementarea filtrelor cu secțiuni de ordinul 2 ("second order sections")
+înseamnă implementarea filtrului **în formă serie**,
+ca o secvență de sub-filtre de ordinul 2.
+$$H(z) = H_1(z) \cdot ... \cdot H_n(z) \cdot Gain$$
+
+unde fiecare $H_i(z)$ este de ordinul 2:
+$$H_i(z) = \frac{b_0^{(i)} + b_1^{(i)} z^{-1} + b_2^{(i)} z^{-2}}{1 + a_1^{(i)} z^{-1} + a_2^{(i)} z^{-2}}$$
+
+Exemplu:
+
+[https://www.ni.com/docs/en-US/bundle/labview-digital-filter-design-toolkit-api-ref/page/lvdfdtconcepts/iir_sos_specs.html](https://www.ni.com/docs/en-US/bundle/labview-digital-filter-design-toolkit-api-ref/page/lvdfdtconcepts/iir_sos_specs.html)
+
+
+## Exerciții teoretice
+1. Convertiți numărul de mai jos din binar în zecimal:
+
+    $11011.0101$
+
+1. Să se scrie în formatul virgulă fixă cu 1 bit de semn, 6 biți pentru partea întreagă
+și 6 biți pentru partea fracționară (1S6Î6F) numărul:
+
+    $273.21875$
+
+1. Să se scrie în formatul virgulă fixă cu 1 bit de semn, 6 biți pentru partea întreagă
+și 6 biți pentru partea fracționară (1S6Î6F) numerele negative următoare.
+Reprezentarea numerelor negative se va face în formatele mărime cu semn,
+complement față de 1 (C1) și complement față de 2 (C2).
+    a. -22
+    b. -22.21875
+
+1. Cuantizați eșantioanele $x_1 = 0.42625$ și $x_2 = -0.4333$
+în formatul virgulă fixă 1S0Î4F prin:
+    a. Trunchiere
+    b. Rotunjire
+    c. Trunchiere semn-valoare
+
+    Valorile negative se reprezintă în formatul C2.
+
+
+## Exerciții practice
+
+1. Utilizați utilitarul `fdatool` pentru a proiecta un filtru trece-jos IIR
+de ordin 4, de tip eliptic, cu frecvența de tăiere de 3kHz la
+o frecvență de eșantionare de 44.1kHz. Exportați coeficienții
+formei directe II în Workspace-ul Matlab sub numele `b` și `a`.
+
+4. În utilitarul `fdatool`, setați aritmetica filtrului la
+"fixed-point arithmetic" și modificați:
+    a. Setați formatul virgulă fixă 1S2Î7F.
+       Cum se modifică funcția de transfer a circuitului?
+    b. Creșteți numărul de biți ai părții fracționare.
+       Cum se modifică funcția de transfer a circuitului?
+       Pentru ce număr de biți considerați că erorile devin neglijabile?
+    c. Exportați coeficienții formei directe II
+       în Workspace-ul Matlab, sub numele `b1` și `a1`.
+
+5. Repetați punctul precedent cu filtrul implementat în forma serie
+("Second-Order-Sections"). În care caz erorile sunt mai mici? Exportați
+coeficienții în Workspace-ul Matlab sub numele `b2` și `a2`.
+
+5. Încărcați semnalul audio predefinit `mtlb` din Matlab (`load mtlb;`).
+Utilizați funcția `filter()` pentru a filtra semnalul cu
+filtrul original (`b` și `a`) și cu cel în virgulă fixă în
+forma directă II (`b1` și `a1`).
+    a. Afișați semnalul diferență dintre cele două ieșiri.
+    b. Afișați histograma semnalului diferență. Ce formă are? Care este
+    valoarea medie a erorilor?
+
+## Întrebări finale
+
+1. TBD
