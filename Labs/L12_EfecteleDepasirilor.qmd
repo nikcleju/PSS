@@ -60,13 +60,13 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
    a. La al doilea filtru, convertiți semnalul de intrare la formatul virgulă fixă 1S6Î9F, folosind un bloc de tip "Data Type Conversion";
    a. Obțineți și afișați diferența dintre cele două ieșiri;
    c. Creșteți numărul de biți de la partea întreagă, pentru a obține un semnal de ieșire asemănător celui original;
-   b. Exportați semnalul diferență dintre cele doup ieșiri în Workspace-ul Matlab și calculați media și varianța sa.
+   b. Exportați semnalul diferență dintre cele două ieșiri în Workspace-ul Matlab și calculați media și varianța sa.
    
       Folosiți un bloc "To Workspace", cu setările: 
 	  - Save format: Array
 	  - 2D în loc de 3D
 
-3. Repetați exercițiul 2 pentru filtrul implementate cu secțiuni de ordinul 2.
+3. Repetați exercițiul 2 pentru filtrul implementat cu secțiuni de ordinul 2.
 
 3. Reluați exercițiul 2, revenind la formatul virgulă fixă 1S6Î9F.
    
