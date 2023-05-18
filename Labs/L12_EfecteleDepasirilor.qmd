@@ -52,7 +52,7 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
 2. În modelul Simulink, realizați două copii ale filtrului (Copy/Paste) în forma directă 2.
    
    La ambele filtre se va pune ca intrare un semnal audio (de ex. *Kalimba.mp3*).
-   La blocul "From Multimedia File", setați parametrul "Number of samples per audio channel" (1024) la **1**.
+   La blocul "From Multimedia File", setați parametrul "Samples per audio channel" (1024) la **1**.
    
    Afișați tipul de date al semnalelor din schemă: 
    clic-dreapta în zona albă-> "Other Displays" -> "Signal and Ports" -> "Port Data Types"
