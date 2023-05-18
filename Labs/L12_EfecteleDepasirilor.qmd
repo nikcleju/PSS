@@ -46,8 +46,8 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
    de ordin 4, de tip Butterworth, cu frecvența de tăiere de 1.5kHz la
    o frecvență de eșantionare de 44.1kHz.
 
-   b. Exportați filtrul în Simulink în forma cu secțiuni de ordinul 2 ("Export to Simulink model", bifați *Build model using basic elements*).
-   a. Convertiți filtrul la forma directă II și exportați-l din nou în Simulink (bifați *Build model using basic elements*).
+   a. Exportați filtrul în Simulink în forma cu secțiuni de ordinul 2 ("Export to Simulink model", bifați *Build model using basic elements*).
+   b. Convertiți filtrul la forma directă II și exportați-l din nou în Simulink (bifați *Build model using basic elements*).
 
 2. În modelul Simulink, realizați două copii ale filtrului (Copy/Paste) în forma directă 2.
    
@@ -66,7 +66,7 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
 	  - Save format: Array
 	  - 2D în loc de 3D
 
-3. Repetați exercițiul 2 pentru filtrele implementate cu secțiuni de ordinul 2.
+3. Repetați exercițiul 2 pentru filtrul implementate cu secțiuni de ordinul 2.
 
 3. Reluați exercițiul 2, revenind la formatul virgulă fixă 1S6Î9F.
    
