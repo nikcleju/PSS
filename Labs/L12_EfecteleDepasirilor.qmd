@@ -58,9 +58,9 @@ Studiul efectelor produse de depășirile de format în cadrul implementărilor
    clic-dreapta în zona albă-> "Other Displays" -> "Signal and Ports" -> "Port Data Types"
    
    a. La al doilea filtru, convertiți semnalul de intrare la formatul virgulă fixă 1S6Î9F, folosind un bloc de tip "Data Type Conversion";
-   a. Obțineți și afișați diferența dintre cele două ieșiri;
-   c. Creșteți numărul de biți de la partea întreagă, pentru a obține un semnal de ieșire asemănător celui original;
-   b. Exportați semnalul diferență dintre cele două ieșiri în Workspace-ul Matlab și calculați media și varianța sa.
+   b. Creșteți numărul de biți de la partea întreagă, pentru a obține un semnal de ieșire asemănător celui original;
+   c. Obțineți și afișați diferența dintre cele două ieșiri;
+   d. Exportați semnalul diferență dintre cele două ieșiri în Workspace-ul Matlab și calculați media și varianța sa.
    
       Folosiți un bloc "To Workspace", cu setările: 
 	  - Save format: Array
