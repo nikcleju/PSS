@@ -36,7 +36,7 @@ $N$ reprezintă ordinul modelului autoregresiv.
 O metodă alternativă, mai exactă, este furnizată în funcția `lpc_exact()` împreună
 cu lucrarea de laborator.
 
-## Example Matlab
+## Exemple Matlab
 
 ### Generarea unor semnale simple
 
@@ -72,7 +72,7 @@ plot(x)
 ```
 
 
-### Calcul coeficienți LPC:
+### Calcul coeficienți LPC
 
 ```matlab
 x = 1:1:10
@@ -88,7 +88,8 @@ order = 5;
 a = lpc(x, order);
 
 % Predict value at n=11 and append to x:
-x(11) = sum(x(n-1:-1:n-ordin) .* (-a(2:end)))
+n=11ș
+x(n) = sum(x(n-1:-1:n-order) .* (-a(2:end)))
 ```
 
 
