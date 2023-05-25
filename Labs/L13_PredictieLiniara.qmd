@@ -80,16 +80,16 @@ order = 5;
 a = lpc(x, order);
 ```
 
-### Predicția cu coeficienții lpc
+### Predicția cu coeficienții LPC
 
 ```matlab
-x = 1:1:10
+x = 1:1:500
 order = 5;
 a = lpc(x, order);
 
 % Predict value at n=11 and append to x:
-n=11ș
-x(n) = sum(x(n-1:-1:n-order) .* (-a(2:end)))
+n=501;
+x(n) = sum( x(n-1:-1:n-order) .* (-a(2:end))   )
 ```
 
 

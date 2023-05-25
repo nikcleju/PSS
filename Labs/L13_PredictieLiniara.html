@@ -87,7 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#generarea-unor-semnale-simple" id="toc-generarea-unor-semnale-simple" class="nav-link" data-scroll-target="#generarea-unor-semnale-simple">Generarea unor semnale simple</a></li>
   <li><a href="#calcul-coeficienți-lpc" id="toc-calcul-coeficienți-lpc" class="nav-link" data-scroll-target="#calcul-coeficienți-lpc">Calcul coeficienți LPC</a></li>
-  <li><a href="#predicția-cu-coeficienții-lpc" id="toc-predicția-cu-coeficienții-lpc" class="nav-link" data-scroll-target="#predicția-cu-coeficienții-lpc">Predicția cu coeficienții lpc</a></li>
+  <li><a href="#predicția-cu-coeficienții-lpc" id="toc-predicția-cu-coeficienții-lpc" class="nav-link" data-scroll-target="#predicția-cu-coeficienții-lpc">Predicția cu coeficienții LPC</a></li>
   </ul></li>
   <li><a href="#exerciții-teoretice" id="toc-exerciții-teoretice" class="nav-link" data-scroll-target="#exerciții-teoretice"><span class="header-section-number">4</span> Exerciții teoretice</a></li>
   <li><a href="#exerciții-practice" id="toc-exerciții-practice" class="nav-link" data-scroll-target="#exerciții-practice"><span class="header-section-number">5</span> Exerciții practice</a></li>
@@ -154,14 +154,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">lpc</span>(<span class="va">x</span><span class="op">,</span> <span class="va">order</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="predicția-cu-coeficienții-lpc" class="level3">
-<h3 class="anchored" data-anchor-id="predicția-cu-coeficienții-lpc">Predicția cu coeficienții lpc</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
+<h3 class="anchored" data-anchor-id="predicția-cu-coeficienții-lpc">Predicția cu coeficienții LPC</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">order</span> <span class="op">=</span> <span class="fl">5</span><span class="op">;</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">lpc</span>(<span class="va">x</span><span class="op">,</span> <span class="va">order</span>)<span class="op">;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">% Predict value at n=11 and append to x:</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="va">n</span><span class="op">=</span><span class="fl">11</span>ș</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="va">n</span>) <span class="op">=</span> <span class="va">sum</span>(<span class="va">x</span>(<span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">:-</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">-</span><span class="va">order</span>) <span class="op">.*</span> (<span class="op">-</span><span class="va">a</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="va">n</span><span class="op">=</span><span class="fl">501</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="va">n</span>) <span class="op">=</span> <span class="va">sum</span>( <span class="va">x</span>(<span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">:-</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">-</span><span class="va">order</span>) <span class="op">.*</span> (<span class="op">-</span><span class="va">a</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>))   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="exerciții-teoretice" class="level2" data-number="4">
