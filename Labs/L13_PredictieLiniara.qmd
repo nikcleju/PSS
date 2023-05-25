@@ -109,7 +109,7 @@ x(n) = sum( x(n-1:-1:n-order) .* (-a(2:end))   )
 
 1. Predicție liniară pe un semnal liniar
   
-   - Generați un semnal liniar crescător de 200 eșantioane, cu pantă constantă $\Delta = 0.5$, prima valoare fiind 5.
+   - Generați un semnal liniar crescător de 200 eșantioane, cu pas constant $\Delta = 0.5$, prima valoare fiind 5.
     
 	 Folosiți `linspace()` sau `start:step:stop`.
 	
