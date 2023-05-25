@@ -60,7 +60,7 @@ Semnal exponential $a^n u[n]$:
 
 ```matlab
 n = 0:20;
-x = (1/2).^m;
+x = (1/2).^n;
 plot(x)
 ```
 
@@ -113,8 +113,8 @@ x(n) = sum( x(n-1:-1:n-order) .* (-a(2:end))   )
     
 	 Folosiți `linspace()` sau `start:step:stop`.
 	
-   - Modelăm semnalul ca un proces autoregresiv de ordin 4, AR(4).
-    Calculați coeficienții de predicție $a_k$ cu funcția Matlab `lpc()`.
+   - Modelând semnalul ca un proces autoregresiv de ordin 4, AR(4),
+     calculați coeficienții de predicție $a_k$ cu funcția Matlab `lpc()`.
 	
    - Pe baza coeficienților de predicție, folosind relația de predicție,
      preziceți următoarele 200 eșantioane ale semnalului.
@@ -123,12 +123,7 @@ x(n) = sum( x(n-1:-1:n-order) .* (-a(2:end))   )
      Puteți folosi o relație de forma `sum(x(n-1:-1:n-ordin) .* (-a(2:end)))`
 
    - Utilizați funcția `lpc_exact()` în locul `lpc()`. Ce se observă ?
-   	
-   - Generați același semnal crescător cu lungime 400 eșantioane direct cu formula initială.
-     Afișați pe aceeași figură semnalul acesta și semnalul precedent (2 x 400 eșantioane).
-	
-	 Ce calitate are porțiunea prezisă, comparativ?
-  
+
    - Schimbați ordinul modelului în AR(1), AR(2), AR(3), AR(10. Ce se observă ?
   
      Care este cel mai mic ordin pentru care predicția reușește?
@@ -146,9 +141,9 @@ x(n) = sum( x(n-1:-1:n-order) .* (-a(2:end))   )
 
    - Semnal sinusoidal atenuat: $x[n] = \frac{\sin( 2 * \pi * f * n)}{2*\pi*f*n}  u[n], f = 0.05$. Porniți de la un semnal de lungime 50, și estimați următoarele 50 eșantioane.
 
-   - Semnal de tip zgomot alb gaussian (AWGN, generat cu `randn()`). $x[n] = 0.8^n \cdot sin( 2 * \pi * f * n) u[n], f = 0.2$. Lungime 500 + 100. Apoi lungime 20 + 100. 
+   - Semnal de tip zgomot alb gaussian (AWGN, generat cu `randn()`, lungime 500 + 100 prezise.
    
-   - Semnal de tip zgomot alb uniform (generat cu `rand()`). $x[n] = 0.8^n \cdot sin( 2 * \pi * f * n) u[n], f = 0.2$. Lungime 500 + 100. Apoi lungime 20 + 100. 
+   - Semnal de tip zgomot alb uniform (generat cu `rand()`), lungime 500 + 100.
 
    - Semnal sinusoidal in zgomot alb: $x[n] = 2 \cdot sin( 2 * \pi * f * n) u[n] + AWGN, f = 0.05$. Lungime 100 + 100.
 

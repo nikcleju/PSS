@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">x</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Semnal exponential <span class="math inline">\(a^n u[n]\)</span>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">20</span><span class="op">;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">2</span>)<span class="op">.^</span><span class="va">m</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">2</span>)<span class="op">.^</span><span class="va">n</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">x</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Semnal de tip zgomot:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">randn</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">100</span>)<span class="op">;</span>   <span class="co">% or use rand()</span></span>
@@ -182,12 +182,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Generați un semnal liniar crescător de 200 eșantioane, cu pantă constantă <span class="math inline">\(\Delta = 0.5\)</span>, prima valoare fiind 5.</p>
 <p>Folosiți <code>linspace()</code> sau <code>start:step:stop</code>.</p></li>
-<li><p>Modelăm semnalul ca un proces autoregresiv de ordin 4, AR(4). Calculați coeficienții de predicție <span class="math inline">\(a_k\)</span> cu funcția Matlab <code>lpc()</code>.</p></li>
+<li><p>Modelând semnalul ca un proces autoregresiv de ordin 4, AR(4), calculați coeficienții de predicție <span class="math inline">\(a_k\)</span> cu funcția Matlab <code>lpc()</code>.</p></li>
 <li><p>Pe baza coeficienților de predicție, folosind relația de predicție, preziceți următoarele 200 eșantioane ale semnalului. Afișați întregul semnal rezultat (400 eșantioane)</p>
 <p>Puteți folosi o relație de forma <code>sum(x(n-1:-1:n-ordin) .* (-a(2:end)))</code></p></li>
 <li><p>Utilizați funcția <code>lpc_exact()</code> în locul <code>lpc()</code>. Ce se observă ?</p></li>
-<li><p>Generați același semnal crescător cu lungime 400 eșantioane direct cu formula initială. Afișați pe aceeași figură semnalul acesta și semnalul precedent (2 x 400 eșantioane).</p>
-<p>Ce calitate are porțiunea prezisă, comparativ?</p></li>
 <li><p>Schimbați ordinul modelului în AR(1), AR(2), AR(3), AR(10. Ce se observă ?</p>
 <p>Care este cel mai mic ordin pentru care predicția reușește?</p></li>
 </ul></li>
@@ -198,8 +196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Semnal sinusoidal: <span class="math inline">\(x[n] = 3 \cdot \sin( 2 * \pi * f * n) u[n], f = 0.05\)</span>. Porniți de la un semnal de lungime 50, și estimați următoarele 50 eșantioane.</p></li>
 <li><p>Sinusoidă exponențială: <span class="math inline">\(x[n] = 0.8^n \cdot \sin( 2 * \pi * f * n) u[n], f = 0.2\)</span>. Lungime 50 + 50</p></li>
 <li><p>Semnal sinusoidal atenuat: <span class="math inline">\(x[n] = \frac{\sin( 2 * \pi * f * n)}{2*\pi*f*n} u[n], f = 0.05\)</span>. Porniți de la un semnal de lungime 50, și estimați următoarele 50 eșantioane.</p></li>
-<li><p>Semnal de tip zgomot alb gaussian (AWGN, generat cu <code>randn()</code>). <span class="math inline">\(x[n] = 0.8^n \cdot sin( 2 * \pi * f * n) u[n], f = 0.2\)</span>. Lungime 500 + 100. Apoi lungime 20 + 100.</p></li>
-<li><p>Semnal de tip zgomot alb uniform (generat cu <code>rand()</code>). <span class="math inline">\(x[n] = 0.8^n \cdot sin( 2 * \pi * f * n) u[n], f = 0.2\)</span>. Lungime 500 + 100. Apoi lungime 20 + 100.</p></li>
+<li><p>Semnal de tip zgomot alb gaussian (AWGN, generat cu <code>randn()</code>, lungime 500 + 100 prezise.</p></li>
+<li><p>Semnal de tip zgomot alb uniform (generat cu <code>rand()</code>), lungime 500 + 100.</p></li>
 <li><p>Semnal sinusoidal in zgomot alb: <span class="math inline">\(x[n] = 2 \cdot sin( 2 * \pi * f * n) u[n] + AWGN, f = 0.05\)</span>. Lungime 100 + 100.</p></li>
 <li><p>Semnalul <code>mtlb</code> încărcat cu <code>load mtlb;</code>. Estimați următoarea secundă de semnal audio.</p></li>
 <li><p>Primele 150 de eșantioane din semnalul <code>mtlb</code>. Estimați următoarea secundă de semnal audio.</p></li>
